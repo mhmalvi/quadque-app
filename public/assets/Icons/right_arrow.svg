@@ -1,0 +1,28 @@
+<svg width="76" height="78" viewBox="0 0 76 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style type="text/css">
+	.st0{
+		fill:url(#MyGradient);
+		<!-- filter: drop-shadow(15px 15px 30px #fff); -->
+	}
+</style>
+<g filter="url(#filter0_d_1_1825)">
+<linearGradient id="MyGradient">
+        <stop offset="5%" stop-color="#fff" />
+        <stop offset="65%" stop-color="#dec1f7" />
+        <stop offset="95%" stop-color="#b8f5f5" />
+    </linearGradient>
+<path class="st0" fill-rule="evenodd" clip-rule="evenodd" d="M38 63.75C45.8902 63.75 53.4572 60.6156 59.0364 55.0364C64.6156 49.4572 67.75 41.8902 67.75 34C67.75 26.1098 64.6156 18.5428 59.0364 12.9636C53.4572 7.38436 45.8902 4.25 38 4.25C30.1098 4.25 22.5428 7.38436 16.9636 12.9636C11.3844 18.5428 8.25 26.1098 8.25 34C8.25 41.8902 11.3844 49.4572 16.9636 55.0364C22.5428 60.6156 30.1098 63.75 38 63.75ZM38 -1.48619e-06C47.0174 -1.88035e-06 55.6654 3.58213 62.0416 9.95836C68.4179 16.3346 72 24.9826 72 34C72 43.0174 68.4179 51.6654 62.0416 58.0416C55.6654 64.4179 47.0174 68 38 68C28.9826 68 20.3346 64.4179 13.9584 58.0416C7.58213 51.6654 4 43.0174 4 34C4 24.9826 7.58213 16.3346 13.9584 9.95837C20.3346 3.58213 28.9826 -1.09203e-06 38 -1.48619e-06ZM23.125 31.875C22.5614 31.875 22.0209 32.0989 21.6224 32.4974C21.2239 32.8959 21 33.4364 21 34C21 34.5636 21.2239 35.1041 21.6224 35.5026C22.0209 35.9011 22.5614 36.125 23.125 36.125L47.7452 36.125L38.6205 45.2455C38.2215 45.6445 37.9973 46.1857 37.9973 46.75C37.9973 47.3143 38.2215 47.8555 38.6205 48.2545C39.0195 48.6535 39.5607 48.8777 40.125 48.8777C40.6893 48.8777 41.2305 48.6535 41.6295 48.2545L54.3795 35.5045C54.5774 35.3071 54.7344 35.0726 54.8415 34.8144C54.9487 34.5563 55.0038 34.2795 55.0038 34C55.0038 33.7205 54.9487 33.4437 54.8415 33.1856C54.7344 32.9274 54.5774 32.6929 54.3795 32.4955L41.6295 19.7455C41.2305 19.3465 40.6893 19.1223 40.125 19.1223C39.5607 19.1223 39.0195 19.3465 38.6205 19.7455C38.2215 20.1445 37.9973 20.6857 37.9973 21.25C37.9973 21.8143 38.2215 22.3555 38.6205 22.7545L47.7452 31.875L23.125 31.875Z" fill="currentColor"  shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_d_1_1825" x="0" y="0" width="76" height="78" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="6"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1825"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1825" result="shape"/>
+</filter>
+</defs>
+</svg>

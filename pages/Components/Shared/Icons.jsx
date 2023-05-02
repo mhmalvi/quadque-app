@@ -1,0 +1,14 @@
+export { default as BrandLogo } from "../../../public/assets/Icons/brandlogo.svg";
+export { default as FooterIcon } from "../../../public/assets/Icons/footer-icon.svg";
+export { default as FooterFacebook } from "../../../public/assets/Icons/fb.svg";
+export { default as FooterInstagram } from "../../../public/assets/Icons/insta.svg";
+export { default as FooterTwitter } from "../../../public/assets/Icons/twit.svg";
+export { default as FooterYoutube } from "../../../public/assets/Icons/yt.svg";
+export { default as FacebookDesktop } from "../../../public/assets/Icons/facebook-desktop.svg";
+export { default as YoutubeDesktop } from "../../../public/assets/Icons/youtube-desktop.svg";
+export { default as InstaDesktop } from "../../../public/assets/Icons/insta-desktop.svg";
+export { default as TwiterDesktop } from "../../../public/assets/Icons/twiter-desktop.svg";
+export { default as BluePhone } from "../../../public/assets/Icons/blue_phone.svg";
+export { default as BrandLogoMob } from "../../../public/assets/Icons/navbar-logo.svg";
+export { default as BrandLogoMobWithTagline } from "../../../public/assets/Icons/logo-mob-tagline.svg";
+export { default as GoBackArrow } from "../../../public/assets/Icons/go-back-arrow.svg";
