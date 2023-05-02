@@ -8,6 +8,7 @@
     "dev-prod": "env-cmd -f .env.production next dev",
     "build-local": "env-cmd -f .env.development.local next build",
     "build-prod": "env-cmd -f .env.production next build",
+    "export-prod": "env-cmd -f .env.production next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,7 +18,6 @@
     "antd": "^5.4.6",
     "axios": "^1.3.6",
     "env-cmd": "^10.1.0",
-    "json-loader": "^0.5.7",
     "lottie-web": "^5.11.0",
     "next": "13.3.1",
     "react": "18.2.0",

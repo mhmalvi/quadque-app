@@ -359,7 +359,7 @@ const DesktopFooter = () => {
                   </Fade>
                 </div>
               </div>
-              <div class="flex justify-center text-xs pb-2 pt-4 2xl:pt-10">
+              <div className="flex justify-center text-xs pb-2 pt-4 2xl:pt-10">
                 Quadque©{year}, All rights reserved
               </div>
             </div>
