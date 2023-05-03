@@ -2,12 +2,16 @@
 import { useState, useEffect } from "react";
 import Logo from "../../../../public/assets/Images/company-footer-logo.png";
 // import "../../../../styles/MobileView.css";
-import {
-  FooterFacebook,
-  FooterInstagram,
-  FooterTwitter,
-  FooterYoutube,
-} from "../Icons";
+import FooterFacebook from "../../../../public/assets/Icons/fb.svg";
+import FooterInstagram from "../../../../public/assets/Icons/insta.svg";
+import FooterTwitter from "../../../../public/assets/Icons/twit.svg";
+import FooterYoutube from "../../../../public/assets/Icons/yt.svg";
+// import {
+//   FooterFacebook,
+//   FooterInstagram,
+//   FooterTwitter,
+//   FooterYoutube,
+// } from "../Icons";
 import Image from "next/image";
 import Link from "next/link";
 

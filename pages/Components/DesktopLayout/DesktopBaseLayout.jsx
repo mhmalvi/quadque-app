@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import { handleLetsGoAudio } from "../../utils/sounds";
 import Navbar from "../Shared/Navbar";
-import { BrandLogo } from "../Shared/Icons";
+import BrandLogo from "../../../public/assets/Icons/brandlogo.svg";
 import LottiePlayer from "../Shared/LottiePlayer";
 
 const DesktopBaseLayout = ({ children }) => {

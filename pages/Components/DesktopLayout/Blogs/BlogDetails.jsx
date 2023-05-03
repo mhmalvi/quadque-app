@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Meta from "../../../utils/Meta";
 import Link from "next/link";
-import { GoBackArrow } from "../../Shared/Icons";
+import GoBackArrow from "../../../../public/assets/Icons/go-back-arrow.svg";
 import loaderFile from "../../../../public/assets/Lotties/loader.json";
 import speakLogo from "../../../../public/assets/Lotties/speak.json";
 import LottiePlayer from "../../Shared/LottiePlayer";

@@ -5,14 +5,22 @@ import { Fade } from "react-awesome-reveal";
 import address from ".././../../../public/assets/Images/address.png";
 import bgAus from ".././../../../public/assets/Images/background_aus.jpg";
 import bgBD from ".././../../../public/assets/Images/background_bd.jpg";
-import {
-  BluePhone,
-  FacebookDesktop,
-  FooterIcon,
-  InstaDesktop,
-  TwiterDesktop,
-  YoutubeDesktop,
-} from "../Icons";
+
+import BluePhone from "../../../../public/assets/Icons/blue_phone.svg";
+import FacebookDesktop from "../../../../public/assets/Icons/facebook-desktop.svg";
+import FooterIcon from "../../../../public/assets/Icons/footer-icon.svg";
+import InstaDesktop from "../../../../public/assets/Icons/insta-desktop.svg";
+import TwiterDesktop from "../../../../public/assets/Icons/twiter-desktop.svg";
+import YoutubeDesktop from "../../../../public/assets/Icons/youtube-desktop.svg";
+
+// import {
+//   BluePhone,
+//   FacebookDesktop,
+//   FooterIcon,
+//   InstaDesktop,
+//   TwiterDesktop,
+//   YoutubeDesktop,
+// } from "../Icons";
 
 const DesktopFooter = () => {
   //   const location = useLocation();

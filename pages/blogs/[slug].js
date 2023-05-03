@@ -16,7 +16,6 @@ const BlogDetailsPage = ({ blogs, blogDetails }) => {
           <div id="stars2"></div>
           <div id="stars3"></div>
           <BlogDetails blogDetails={blogDetails} blogs={blogs} />
-
           <div className="w-11/12 mx-auto">
             <DesktopFooter />
           </div>

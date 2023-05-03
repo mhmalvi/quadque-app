@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 // import "../MobileView.css";
 import Link from "next/link";
 import Meta from "../../../utils/Meta";
-import { GoBackArrow } from "../../Shared/Icons";
+import GoBackArrow  from "../../../../public/assets/Icons/go-back-arrow.svg";
 import loaderFile from "../../../../public/assets/Lotties/loader.json";
 import LottiePlayer from "../../Shared/LottiePlayer";
 
