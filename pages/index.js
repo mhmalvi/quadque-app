@@ -6,7 +6,7 @@ export default function Home() {
 
   useEffect(() => {
     router.push("/blogs");
-  }, [router]);
+  }, []);
 
   return (
     <div className="min-h-screen w-full bg-black text-white">

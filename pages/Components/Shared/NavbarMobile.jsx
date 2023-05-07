@@ -110,7 +110,7 @@ const NavbarMobile = () => {
           </div>
 
           <div onClick={() => setOpen(false)} className="font_title">
-            <Link href="career">Careers</Link>
+            <Link href="career">Career</Link>
           </div>
 
           {/*           <div onClick={() => setOpen(false)} className="font_title">

@@ -270,7 +270,7 @@ const DesktopFooter = () => {
                         <a href={"https://quadque.tech/#about"}>About Us</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
-                        <a href={"/career"}>Careers</a>
+                        <a href={"/career"}>Career</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
                         <a href={"/gallery"}>Gallery</a>

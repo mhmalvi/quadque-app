@@ -1,19 +1,22 @@
-import BlogsGallery from "../Components/MobileLayout/Blogs";
-import Blogs from "../Components/DesktopLayout/Blogs";
+import axios from "axios";
 import DesktopBaseLayout from "../Components/DesktopLayout/DesktopBaseLayout";
 import DesktopFooter from "../Components/Shared/Footer/Desktop";
 import Meta from "../utils/Meta";
+import Career from "../Components/DesktopLayout/Career";
+import CareerMoblie from "../Components/MobileLayout/Career";
 import NavbarMobile from "../Components/Shared/NavbarMobile";
 import MobileFooter from "../Components/Shared/Footer/Mobile";
 
-export default function BlogPage({ blogs }) {
+export default function CareerPage({ career }) {
   return (
     <div>
       <Meta
-        title={"Blog - Get The Best Online IT Services for Business - Quadque"}
-        url={`${process.env.NEXT_CLIENT_URL}/blogs`}
+        title={
+          "Career - Get The Best Online IT Services for Business - Quadque"
+        }
+        url={`${process.env.NEXT_CLIENT_URL}/career`}
         description={
-          "Look at our informative blogs, where we discuss various interesting topics related to the IT industry, such as website development , UI/UX design and digital marketing and so on."
+          "Do you have the skills to help us make a more significant impact on the IT industry? Want to join our team and contribute your expertise? If so, let's get in touch!"
         }
         keywords={""}
       />
@@ -24,8 +27,8 @@ export default function BlogPage({ blogs }) {
             <div id="stars"></div>
             <div id="stars2"></div>
             <div id="stars3"></div>
-            <div className="w-9/12 mx-auto my-24">
-              <Blogs blogs={blogs} />
+            <div className="w-full mx-auto ">
+              <Career allCareerPosts={career} />
             </div>
             <div className="w-11/12 mx-auto">
               <DesktopFooter />
@@ -36,9 +39,10 @@ export default function BlogPage({ blogs }) {
           <div id="stars"></div>
           <div id="stars2"></div>
           <div id="stars3"></div>
+
           <>
             <NavbarMobile />
-            <BlogsGallery blogs={blogs} />
+            <CareerMoblie allCareerPosts={career} />
             <MobileFooter />
           </>
         </div>
@@ -48,11 +52,20 @@ export default function BlogPage({ blogs }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.NEXT_SERVICE_URL}/api/manage-blogs`);
-  const blogRes = await res.json();
+  try {
+    const careerResp = await axios.get(
+      `https://api.npoint.io/803fb7bb194a84a26edf`
+    );
 
-  return {
-    props: { blogs: blogRes?.data },
-  };
-  // }
+    if (careerResp?.status === 200) {
+      return {
+        props: { career: careerResp?.data },
+      };
+    }
+  } catch (error) {
+    console.log(error.response?.data);
+    return {
+      props: { career: [] },
+    };
+  }
 };

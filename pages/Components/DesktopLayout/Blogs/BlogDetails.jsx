@@ -47,14 +47,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
 
   return (
     <div>
-      <Meta
-        title={blogDetails?.title}
-        url={`${process.env.NEXT_CLIENT_URL}/${blogDetails?.slug}`}
-        description={blogDetails?.meta_description}
-        prevImage={`https://latest-server.quadque.tech/public/${blogDetails?.thumbnail}`}
-        keywords={blogDetails?.meta_keywords}
-      />
-
+     
       {loader ? (
         <div className="w-[95%] h-full z-40 flex flex-col justify-center items-center m-auto absolute top-0 bg-black bg-opacity-30 backdrop-filter backdrop-blur-sm">
           <span className="w-48">

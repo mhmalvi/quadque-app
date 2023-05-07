@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
-import Logo from "../../../../public/assets/Images/company-footer-logo.png";
+import { useEffect, useState } from "react";
 // import "../../../../styles/MobileView.css";
 import FooterFacebook from "../../../../public/assets/Icons/fb.svg";
 import FooterInstagram from "../../../../public/assets/Icons/insta.svg";
@@ -12,7 +11,6 @@ import FooterYoutube from "../../../../public/assets/Icons/yt.svg";
 //   FooterTwitter,
 //   FooterYoutube,
 // } from "../Icons";
-import Image from "next/image";
 import Link from "next/link";
 
 const MobileFooter = () => {
@@ -46,7 +44,7 @@ const MobileFooter = () => {
       <div className="flex mt-10 px-6 gap-2">
         <div className="w-1/2 flex-col leading-10">
           <Link href="/career" className="my-2">
-            Careers
+            Career
           </Link>
           <Link href={`/faq`}>
             <p className="my-2">FAQ&apos;s</p>
@@ -59,7 +57,7 @@ const MobileFooter = () => {
           <Link href="/#Case_Study" className="my-2">
             Case Studies
           </Link>
-          <Link href={`/blog`}>
+          <Link href={`/blogs`}>
             <p className="my-2">Blogs</p>
           </Link>
           <Link href={`/gallery`}>

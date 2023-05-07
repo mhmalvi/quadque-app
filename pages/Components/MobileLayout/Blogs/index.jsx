@@ -45,8 +45,6 @@ const BlogsGallery = ({ blogs }) => {
 
   return (
     <div>
-      <NavbarMobile />
-
       {loader ? (
         <div className="w-[95%] h-full z-40 flex flex-col justify-center items-center m-auto absolute top-0 bg-black bg-opacity-30 backdrop-filter backdrop-blur-sm">
           <span className="w-32">
@@ -56,7 +54,7 @@ const BlogsGallery = ({ blogs }) => {
         </div>
       ) : (
         <div>
-          <div className="Blog w-full mt-30 font_primary">
+          <div className="Blog w-full mt-24 font_primary">
             {blogs?.length === 0 && (
               <div className="text-white text-center">No blogs to show.</div>
             )}
@@ -125,8 +123,6 @@ const BlogsGallery = ({ blogs }) => {
           </div>
         </div>
       )}
-
-      <MobileFooter />
     </div>
   );
 };

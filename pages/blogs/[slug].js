@@ -4,11 +4,19 @@ import DesktopBaseLayout from "../Components/DesktopLayout/DesktopBaseLayout";
 import DesktopFooter from "../Components/Shared/Footer/Desktop";
 import NavbarMobile from "../Components/Shared/NavbarMobile";
 import MobileFooter from "../Components/Shared/Footer/Mobile";
+import Meta from "../utils/Meta";
 
-const BlogDetailsPage = ({ blogs, blogDetails }) => {
-  console.log("blogDetails", blogDetails);
+export default function BlogDetailsPage({ blogs, blogDetails }) {
   return (
     <>
+      <Meta
+        title={blogDetails?.title}
+        url={`${process.env.NEXT_CLIENT_URL}/blogs/${blogDetails?.slug}`}
+        description={blogDetails?.meta_description}
+        prevImage={`https://latest-server.quadque.tech/public/${blogDetails?.thumbnail}`}
+        keywords={blogDetails?.meta_keywords}
+      />
+
       {/* For Desktop  */}
       <div className="hidden lg:block">
         <DesktopBaseLayout>
@@ -30,9 +38,7 @@ const BlogDetailsPage = ({ blogs, blogDetails }) => {
       </div>
     </>
   );
-};
-
-export default BlogDetailsPage;
+}
 
 export const getServerSideProps = async (context) => {
   const blogDetails = await fetch(
