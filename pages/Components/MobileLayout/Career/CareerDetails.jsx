@@ -1,16 +1,13 @@
 import Image from "next/image";
-import LottiePlayer from "../../Shared/LottiePlayer";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import loaderFile from "../../../../public/assets/Lotties/loader.json";
+import { useEffect, useState } from "react";
 import GoBackArrow from "../../../../public/assets/Icons/go-back-arrow.svg";
-import NavbarMobile from "../../Shared/NavbarMobile";
-import MobileFooter from "../../Shared/Footer/Mobile";
+import loaderFile from "../../../../public/assets/Lotties/loader.json";
+import LottiePlayer from "../../Shared/LottiePlayer";
 
 export default function CareerDetails({ careerDetails }) {
   console.log("careerDetails", careerDetails);
-  const router = useRouter();
+  // const router = useRouter();
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {

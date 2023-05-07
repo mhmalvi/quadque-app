@@ -2,10 +2,8 @@ import { Pagination } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import LottiePlayer from "../../Shared/LottiePlayer";
 import loaderFile from "../../../../public/assets/Lotties/loader.json";
-import NavbarMobile from "../../Shared/NavbarMobile";
-import MobileFooter from "../../Shared/Footer/Mobile";
+import LottiePlayer from "../../Shared/LottiePlayer";
 
 const Career = ({ allCareerPosts }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,7 +15,7 @@ const Career = ({ allCareerPosts }) => {
   }, []);
 
   useEffect(() => {
-    if (allCareerPosts.length > 0) {
+    if (allCareerPosts?.length > 0) {
       setTimeout(() => {
         setLoader(false);
       }, 100);
@@ -40,7 +38,7 @@ const Career = ({ allCareerPosts }) => {
       <div className="text-3xl text-white mt-24 px-6 pb-4 font_title">
         Current Job Openings
       </div>
-      {currentPosts.length === 0 && (
+      {currentPosts?.length === 0 && (
         <div className="text-white text-center">No career posts to show.</div>
       )}
       {loader ? (

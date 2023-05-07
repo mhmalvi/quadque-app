@@ -15,11 +15,11 @@ const Blogs = ({ blogs }) => {
   //console.log("all blogs", blogs);
 
   useEffect(() => {
-    setTotalPosts(blogs?.length);
+    setTotalPosts(blogs??.length);
   }, [blogs]);
 
   useEffect(() => {
-    if (blogs?.length > 0) {
+    if (blogs??.length > 0) {
       setTimeout(() => {
         setLoader(false);
       }, 100);

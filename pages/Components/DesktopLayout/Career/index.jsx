@@ -65,7 +65,7 @@ const Career = ({ allCareerPosts }) => {
             Current Job Openings
           </div>
           <div className="Blog w-full px-6 grid grid-cols-3 2xl:grid-cols-4 gap-8 justify-center items-stretch">
-            <Fade direction="left" cascade>
+            <Fade direction="left" cascade triggerOnce>
               {careerPosts?.map((details, i) => (
                 <Link
                   key={i}

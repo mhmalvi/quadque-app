@@ -3,10 +3,8 @@ import { Pagination } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import MobileFooter from "../../Shared/Footer/Mobile";
-import NavbarMobile from "../../Shared/NavbarMobile";
-import LottiePlayer from "../../Shared/LottiePlayer";
 import loaderFile from "../../../../public/assets/Lotties/loader.json";
+import LottiePlayer from "../../Shared/LottiePlayer";
 
 const BlogsGallery = ({ blogs }) => {
   // console.log("blogs", blogs);

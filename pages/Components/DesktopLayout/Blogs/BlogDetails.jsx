@@ -34,7 +34,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
     );
     let nextBlogIndex = currentBlogIndex;
     for (i = 0; i < 4; i++) {
-      if (nextBlogIndex < blogs.length - 1) {
+      if (nextBlogIndex < blogs?.length - 1) {
         nextBlogIndex++;
         NextBlogs.push(blogs[nextBlogIndex]);
       } else {
@@ -47,7 +47,6 @@ const BlogDetails = ({ blogDetails, blogs }) => {
 
   return (
     <div>
-     
       {loader ? (
         <div className="w-[95%] h-full z-40 flex flex-col justify-center items-center m-auto absolute top-0 bg-black bg-opacity-30 backdrop-filter backdrop-blur-sm">
           <span className="w-48">
