@@ -19,10 +19,12 @@ export default function CareerDetailsPage({ career, slug }) {
   return (
     <>
       <Meta
-        title={careerDetails?.position}
-        url={`${process.env.NEXT_CLIENT_URL}/career/${careerDetails?.slug}`}
-        description={careerDetails?.summary}
-        prevImage={`${careerDetails?.thumbnail}`}
+        title={career?.find((post) => post.slug === slug)?.position}
+        url={`${process.env.NEXT_CLIENT_URL}/career/${
+          career?.find((post) => post.slug === slug)?.slug
+        }`}
+        description={career?.find((post) => post.slug === slug)?.summary}
+        prevImage={`${career?.find((post) => post.slug === slug)?.thumbnail}`}
         keywords={""}
       />
 

@@ -56,7 +56,7 @@ const Career = ({ allCareerPosts }) => {
             <GoBackArrow
               className="w-6 font-semibold cursor-pointer"
               onClick={() => {
-                router.push(`../#contacts`);
+                router.push(`https://www.quadque.tech/#contacts`);
                 setLoader(true);
               }}
             />
