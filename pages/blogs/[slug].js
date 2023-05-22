@@ -5,8 +5,29 @@ import DesktopFooter from "../Components/Shared/Footer/Desktop";
 import NavbarMobile from "../Components/Shared/NavbarMobile";
 import MobileFooter from "../Components/Shared/Footer/Mobile";
 import Meta from "../utils/Meta";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function BlogDetailsPage({ blogs, blogDetails }) {
+export default function BlogDetailsPage({ blogDetails }) {
+  const [allBlogs, setAllBlogs] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const blogRes = await axios.get(
+          `https://qqtech-server.quadque.digital/api/manage-blogs`
+        );
+        console.log("blogRes.data", blogRes.data);
+        console.log("blogRes?.data", blogRes?.data?.data);
+
+        if (blogRes?.data?.status === 200) {
+          setAllBlogs(blogRes?.data?.data);
+        }
+      } catch (error) {
+        console.log(error.response?.data);
+      }
+    })();
+  }, []);
   return (
     <>
       <Meta
@@ -23,7 +44,7 @@ export default function BlogDetailsPage({ blogs, blogDetails }) {
           <div id="stars"></div>
           <div id="stars2"></div>
           <div id="stars3"></div>
-          <BlogDetails blogDetails={blogDetails} blogs={blogs} />
+          <BlogDetails blogDetails={blogDetails} blogs={allBlogs} />
           <div className="w-11/12 mx-auto">
             <DesktopFooter />
           </div>
@@ -33,7 +54,7 @@ export default function BlogDetailsPage({ blogs, blogDetails }) {
       {/* For Mobile  */}
       <div className="block lg:hidden">
         <NavbarMobile />
-        <BlogDetailsMobile blogDetails={blogDetails} blogs={blogs} />
+        <BlogDetailsMobile blogDetails={blogDetails} blogs={allBlogs} />
         <MobileFooter />
       </div>
     </>
@@ -41,18 +62,37 @@ export default function BlogDetailsPage({ blogs, blogDetails }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const blogDetails = await fetch(
-    `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
-  );
-  const blogDetailsRes = await blogDetails.json();
+  try {
+    const blogDetailsRes = await axios.get(
+      `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
+    );
+    console.log("blogDetailsRes.data", blogDetailsRes.data);
 
-  const res = await fetch(`${process.env.NEXT_SERVICE_URL}/api/manage-blogs`);
-  const blogsRes = await res.json();
-
-  return {
-    props: {
-      blogs: blogsRes?.data,
-      blogDetails: blogDetailsRes?.data,
-    },
-  };
+    if (blogDetailsRes?.data?.status === 200) {
+      return {
+        props: { blogDetails: blogDetailsRes?.data?.data },
+      };
+    }
+  } catch (error) {
+    console.log(error);
+    return {
+      props: { blogDetails: [] },
+    };
+  }
 };
+// export const getServerSideProps = async (context) => {
+//   const blogDetails = await fetch(
+//     `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
+//   );
+//   const blogDetailsRes = await blogDetails.json();
+
+//   const res = await fetch(`${process.env.NEXT_SERVICE_URL}/api/manage-blogs`);
+//   const blogsRes = await res.json();
+
+//   return {
+//     props: {
+//       blogs: blogsRes?.data,
+//       blogDetails: blogDetailsRes?.data,
+//     },
+//   };
+// };
