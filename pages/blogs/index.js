@@ -81,6 +81,7 @@ export default function BlogPage({ blogs }) {
 //   };
 //   // }
 // };
+
 export const getStaticProps = async () => {
   try {
     const blogRes = await axios.get(

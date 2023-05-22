@@ -14,12 +14,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "latest-server.quadque.tech",
+        hostname: "qqtech-server.quadque.digital",
         port: "",
         pathname: "/**/**",
       },
     ],
-    unoptimized:true
+    unoptimized: true,
   },
 };
 

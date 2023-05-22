@@ -64,7 +64,8 @@ export default function BlogDetailsPage({ blogDetails }) {
 export const getServerSideProps = async (context) => {
   try {
     const blogDetailsRes = await axios.get(
-      `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
+      // `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
+      `https://qqtech-server.quadque.digital/api/manage-blogs/${context.params.slug}`
     );
     console.log("blogDetailsRes.data", blogDetailsRes.data);
 
@@ -76,7 +77,7 @@ export const getServerSideProps = async (context) => {
   } catch (error) {
     console.log(error);
     return {
-      props: { blogDetails: [] },
+      props: { blogDetails: {} },
     };
   }
 };
