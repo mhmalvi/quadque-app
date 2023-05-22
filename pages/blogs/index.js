@@ -6,9 +6,32 @@ import DesktopFooter from "../Components/Shared/Footer/Desktop";
 import MobileFooter from "../Components/Shared/Footer/Mobile";
 import NavbarMobile from "../Components/Shared/NavbarMobile";
 import Meta from "../utils/Meta";
+import { useEffect, useState } from "react";
 
 export default function BlogPage({ blogs }) {
   // console.log("blogs", blogs);
+  const [allBlogs, setAllBlogs] = useState([]);
+
+  useEffect(() => {
+    if (!blogs.length) {
+      (async () => {
+        try {
+          const blogRes = await axios.get(
+            `https://qqtech-server.quadque.digital/api/manage-blogs`
+          );
+          console.log("blogRes.data", blogRes.data);
+          console.log("blogRes?.data", blogRes?.data?.data);
+
+          if (blogRes?.data?.status === 200) {
+            setAllBlogs(blogRes?.data?.data);
+          }
+        } catch (error) {
+          console.log(error.response?.data);
+        }
+      })();
+    }
+  }, [blogs]);
+
   return (
     <div>
       <Meta
@@ -27,7 +50,7 @@ export default function BlogPage({ blogs }) {
             <div id="stars2"></div>
             <div id="stars3"></div>
             <div className="w-9/12 mx-auto my-24">
-              <Blogs blogs={blogs} />
+              <Blogs blogs={blogs.length ? blogs : allBlogs} />
             </div>
             <div className="w-11/12 mx-auto">
               <DesktopFooter />
@@ -40,7 +63,7 @@ export default function BlogPage({ blogs }) {
           <div id="stars3"></div>
           <>
             <NavbarMobile />
-            <BlogsGallery blogs={blogs} />
+            <BlogsGallery blogs={blogs.length ? blogs : allBlogs} />
             <MobileFooter />
           </>
         </div>
@@ -72,7 +95,7 @@ export const getStaticProps = async () => {
       };
     }
   } catch (error) {
-    console.log(error.response?.data);
+    console.log(error);
     return {
       props: { blogs: [] },
     };
