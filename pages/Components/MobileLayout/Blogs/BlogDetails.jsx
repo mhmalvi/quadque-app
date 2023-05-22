@@ -57,7 +57,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
         title={blogDetails?.title}
         url={`${process.env.NEXT_CLIENT_URL}/${blogDetails?.slug}`}
         description={blogDetails?.meta_description}
-        prevImage={`https://latest-server.quadque.tech/public/${blogDetails?.thumbnail}`}
+        prevImage={`https://qqtech-server.quadque.digital/public/${blogDetails?.thumbnail}`}
         keywords={blogDetails?.meta_keywords}
       />
 
@@ -76,7 +76,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
         >
           {/* <div className="w-full h-[5.75rem] bg-black absolute top-0"></div> */}
           <Image
-            src={`https://latest-server.quadque.tech/public/${blogDetails?.thumbnail}`}
+            src={`https://qqtech-server.quadque.digital/public/${blogDetails?.thumbnail}`}
             alt="Thumbnail"
             className="w-full"
             width={500}
@@ -132,7 +132,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
                 >
                   <div key={post?.id} className="w-32 pb-5">
                     <Image
-                      src={`https://latest-server.quadque.tech/public/${post?.thumbnail}`}
+                      src={`https://qqtech-server.quadque.digital/public/${post?.thumbnail}`}
                       alt="Thumbnail"
                       className="w-36 h-36 rounded-lg mb-2"
                       width={500}

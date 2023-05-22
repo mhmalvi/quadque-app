@@ -9,12 +9,12 @@
     "build-local": "env-cmd -f .env.development.local next build",
     "build-prod": "env-cmd -f .env.production next build",
     "export-prod": "env-cmd -f .env.production next build && next export",
-    "start": "next start",
+    "start": "env-cmd -f .env.production next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@ap.cx/react-fullpage": "^0.3.0",
     "@emotion/react": "^11.10.8",
-    "@fullpage/react-fullpage": "^0.1.39",
     "@svgr/webpack": "^7.0.0",
     "antd": "^5.4.6",
     "axios": "^1.3.6",
@@ -28,7 +28,9 @@
     "react-icons": "^4.8.0",
     "react-slick": "^0.29.0",
     "react-socks": "^2.2.0",
-    "slick-carousel": "^1.8.1"
+    "react-typical": "^0.1.3",
+    "slick-carousel": "^1.8.1",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

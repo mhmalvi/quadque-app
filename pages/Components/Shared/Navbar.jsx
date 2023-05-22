@@ -13,7 +13,7 @@ const Navbar = ({ setOpenMenus }) => {
 
   const handleNavigate = (menu) => {
     if (!window.location.hash.includes("#")) {
-      navigate.push(`../${menu}`);
+      navigate.push(`https://www.quadque.tech/${menu}`);
       setOpenMenus(false);
     } else {
       setOpenMenus(false);
@@ -38,7 +38,7 @@ const Navbar = ({ setOpenMenus }) => {
       <div className="flex flex-col justify-center items-center">
         <div className="flex items-center">
           <a
-            href="#services"
+            href="https://www.quadque.tech/#services"
             className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex text-white hover:text-brand-color hover:transition-colors hover:delay-200 cursor-pointer"
             onMouseOver={() => {
               setShowBgShadow("SERVICES");
@@ -62,7 +62,7 @@ const Navbar = ({ setOpenMenus }) => {
           </a>
 
           <a
-            href="#about"
+            href="https://www.quadque.tech/#about"
             className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex mx-20"
             onMouseOver={() => {
               setShowBgShadow("ABOUT");
@@ -98,7 +98,7 @@ const Navbar = ({ setOpenMenus }) => {
             }}
           >
             <a
-              href="#case-study"
+              href="https://www.quadque.tech/#case-study"
               className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex text-white hover:text-brand-color hover:transition-colors hover:delay-200 cursor-pointer"
               onClick={() => handleNavigate("#case-study")}
             >
@@ -127,7 +127,7 @@ const Navbar = ({ setOpenMenus }) => {
             onMouseOut={() => {
               setShowBgShadow("");
             }}
-            onClick={() => handleNavigate("blogs")}
+            // onClick={() => handleNavigate("blogs")}
           >
             <div
               className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex text-white hover:text-brand-color hover:transition-colors hover:delay-200 cursor-pointer"
@@ -148,7 +148,7 @@ const Navbar = ({ setOpenMenus }) => {
           </Link>
 
           <a
-            href="#contacts"
+            href="https://www.quadque.tech/#contacts"
             className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex"
             onMouseOver={() => {
               setShowBgShadow("CONTACT");

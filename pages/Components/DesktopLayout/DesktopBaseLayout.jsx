@@ -1,6 +1,4 @@
-"use client";
 import { Alert, Modal, Space, Tooltip } from "antd";
-// import Lottie from "lottie-react";
 import React, { useEffect, useState } from "react";
 // import siteAudio from "../../../public/assets/Audio/site_audio.mp3";
 import muteImg from "../../../public/assets/Images/mute.png";
@@ -8,12 +6,14 @@ import unmuteImg from "../../../public/assets/Images/unmute.png";
 import welcomeAvatar from "../../../public/assets/Lotties/welcome_avatar.json";
 import Image from "next/image";
 import Link from "next/link";
-// import { handleLetsGoAudio } from "../../utils/sounds";
 import Navbar from "../Shared/Navbar";
 import BrandLogo from "../../../public/assets/Icons/brandlogo.svg";
 import LottiePlayer from "../Shared/LottiePlayer";
+import useSound from "use-sound";
 
 const DesktopBaseLayout = ({ children }) => {
+  const [play, { stop }] = useSound("/assets/Audio/site_audio.mp3");
+  const [playLetsGo] = useSound("/assets/Audio/lets_go.wav");
   const [mouseHover, setMouseHover] = useState(false);
   const [openMenus, setOpenMenus] = useState(false);
   const [showSoundAlert, setShowSoundAlert] = useState(false);
@@ -23,8 +23,6 @@ const DesktopBaseLayout = ({ children }) => {
   // const synth = window?.speechSynthesis;
 
   useEffect(() => {
-    // synth.cancel();
-
     if (!localStorage.getItem("welcome")) {
       setTimeout(() => {
         setShowWelcome(true);
@@ -34,11 +32,9 @@ const DesktopBaseLayout = ({ children }) => {
 
   useEffect(() => {
     if (muted) {
-      document.getElementById("iframeAudio").src = "";
+      stop();
     } else {
-      // document.getElementById("iframeAudio").src = siteAudio;
-      document.getElementById("iframeAudio").src =
-        "../../../public/assets/Audio/site_audio.mp3";
+      play();
     }
   }, [muted]);
 
@@ -54,14 +50,6 @@ const DesktopBaseLayout = ({ children }) => {
 
   return (
     <div className="w-full h-full">
-      {/* For website background Audio */}
-      <iframe
-        id="iframeAudio"
-        title="audio"
-        src={"../../../public/assets/Audio/site_audio.mp3"}
-        allow="autoplay loop"
-        style={{ display: "none" }}
-      />
       <Modal
         style={{
           backgroundColor: "black !important",
@@ -88,7 +76,10 @@ const DesktopBaseLayout = ({ children }) => {
       <div className="relative flex justify-center bg-white">
         {/* Left bar */}
         <div className="w-[100px] min-h-full py-10 z-50 absolute left-0 flex flex-col justify-between left_bar bg-white">
-          <Link href="/" alt="Quadque Technologies Limited Logo">
+          <Link
+            href="https://www.quadque.tech"
+            alt="Quadque Technologies Limited Logo"
+          >
             <BrandLogo className="text-5xl leading-3 mx-auto" />
           </Link>
 
@@ -244,7 +235,7 @@ const DesktopBaseLayout = ({ children }) => {
               <div>&nbsp;</div>
               <div className="mb-9 -rotate-90 flex justify-center items-center">
                 <a
-                  href="#start-project"
+                  href="https://www.quadque.tech/#start-project"
                   className="uppercase whitespace-nowrap font-semibold text-xl leading-[175%] font_primary mr-4"
                 >
                   start project
@@ -316,7 +307,7 @@ const DesktopBaseLayout = ({ children }) => {
                   onClick={() => {
                     setMuted(false);
                     setShowSoundAlert(false);
-                    // handleLetsGoAudio();
+                    playLetsGo();
                   }}
                 >
                   Let&apos;s Go

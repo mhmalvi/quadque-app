@@ -1,25 +1,26 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Meta from "./utils/Meta";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
     router.push("/blogs");
-  }, []);
+  }, [router]);
 
   return (
     <div className="min-h-screen w-full bg-black text-white">
+      <Meta />
       Loading...
-      {/* <Meta />
-      <div className="bg-black">
+      {/* <div className="bg-black">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
         <div className="hidden lg:block">
           <DesktopBaseLayout>
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
-            <div className="w-9/12 mx-auto my-24">
-              <Blogs blogs={blogs} />
+            <div className="w-full">
+              <LandingPage servicesData={servicesData} />
             </div>
             <div className="w-11/12 mx-auto">
               <DesktopFooter />
@@ -39,13 +40,12 @@ export default function Home() {
 
 // export const getStaticProps = async () => {
 //   const res = await fetch(
-//     // "https://latest-server.quadque.tech/api/manage-blogs"
-//     `${process.env.NEXT_SERVICE_URL}/api/manage-blogs`
+//     // "https://qqtech-server.quadque.digital/api/manage-blogs"
+//     `${process.env.NEXT_SERVICE_URL}/api/services`
 //   );
-//   const blogRes = await res.json();
+//   const servicesRes = await res.json();
 
 //   return {
-//     props: { blogs: blogRes?.data },
+//     props: { servicesData: servicesRes?.data },
 //   };
-//   // }
 // };

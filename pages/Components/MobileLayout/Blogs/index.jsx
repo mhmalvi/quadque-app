@@ -77,7 +77,7 @@ const BlogsGallery = ({ blogs }) => {
                 >
                   <Image
                     src={
-                      "https://latest-server.quadque.tech/public/" +
+                      "https://qqtech-server.quadque.digital/public/" +
                       details?.thumbnail
                     }
                     alt="Thumbnail"

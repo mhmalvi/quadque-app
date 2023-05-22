@@ -88,7 +88,7 @@ const NavbarMobile = () => {
           </div>
 
           <div onClick={() => setOpen(false)} className="font_title">
-            <Link href="/">Home</Link>
+            <Link href="https://www.quadque.tech">Home</Link>
           </div>
 
           <div onClick={() => setOpen(false)} className="font_title">
@@ -106,11 +106,11 @@ const NavbarMobile = () => {
           </div>
 
           <div onClick={() => setOpen(false)} className="font_title">
-            <Link href="/blogs">Blogs</Link>
+            <Link href="../blogs">Blogs</Link>
           </div>
 
           <div onClick={() => setOpen(false)} className="font_title">
-            <Link href="career">Career</Link>
+            <Link href="../career">Career</Link>
           </div>
 
           {/*           <div onClick={() => setOpen(false)} className="font_title">

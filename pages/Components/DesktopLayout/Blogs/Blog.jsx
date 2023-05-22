@@ -4,10 +4,12 @@ import Link from "next/link";
 const Blog = ({ blog, setLoader }) => {
   return (
     <div>
-      <Link href={`/blogs/${blog?.slug}`} key={blog?.id}
-      onClick={()=>{
-        setLoader(true)
-      }}
+      <Link
+        href={`/blogs/${blog?.slug}`}
+        key={blog?.id}
+        onClick={() => {
+          setLoader(true);
+        }}
       >
         {/* <div key={blog?.id}> */}
         <div className="flex justify-between items-center my-4 cursor-pointer">
@@ -35,7 +37,8 @@ const Blog = ({ blog, setLoader }) => {
               className="w-full h-full"
               //   src={process.env.NEXT_APP_ASSETS_URL + "/" + blog?.thumbnail}
               src={
-                "https://latest-server.quadque.tech/public/" + blog?.thumbnail
+                "https://qqtech-server.quadque.digital/public/" +
+                blog?.thumbnail
               }
               alt="Thumbnail"
               width={500}

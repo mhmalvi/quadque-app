@@ -13,7 +13,7 @@ export default function BlogDetailsPage({ blogs, blogDetails }) {
         title={blogDetails?.title}
         url={`${process.env.NEXT_CLIENT_URL}/blogs/${blogDetails?.slug}`}
         description={blogDetails?.meta_description}
-        prevImage={`https://latest-server.quadque.tech/public/${blogDetails?.thumbnail}`}
+        prevImage={`https://qqtech-server.quadque.digital/public/${blogDetails?.thumbnail}`}
         keywords={blogDetails?.meta_keywords}
       />
 

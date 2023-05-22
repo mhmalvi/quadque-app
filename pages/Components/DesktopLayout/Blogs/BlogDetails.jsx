@@ -168,7 +168,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
                   <Image
                     className="w-full h-full"
                     src={
-                      "https://latest-server.quadque.tech/public/" +
+                      "https://qqtech-server.quadque.digital/public/" +
                       blog?.thumbnail
                     }
                     alt="Thumbnail"

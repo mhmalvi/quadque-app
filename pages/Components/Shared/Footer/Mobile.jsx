@@ -43,24 +43,24 @@ const MobileFooter = () => {
       </div>
       <div className="flex mt-10 px-6 gap-2">
         <div className="w-1/2 flex-col leading-10">
-          <Link href="/career" className="my-2">
+          <Link href="../career" className="my-2">
             Career
           </Link>
-          <Link href={`/faq`}>
+          <Link href={`https://www.quadque.tech/faq`}>
             <p className="my-2">FAQ&apos;s</p>
           </Link>
-          <Link href="/#Service" className="my-2">
+          <Link href="https://www.quadque.tech/#Service" className="my-2">
             Services
           </Link>
         </div>
         <div className="w-1/2 flex-col leading-10">
-          <Link href="/#Case_Study" className="my-2">
+          <Link href="https://www.quadque.tech/#Case_Study" className="my-2">
             Case Studies
           </Link>
-          <Link href={`/blogs`}>
+          <Link href={`../blogs`}>
             <p className="my-2">Blogs</p>
           </Link>
-          <Link href={`/gallery`}>
+          <Link href={`https://www.quadque.tech/gallery`}>
             <p className="my-2">Gallery</p>
           </Link>
         </div>

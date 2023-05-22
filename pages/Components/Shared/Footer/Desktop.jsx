@@ -100,11 +100,8 @@ const DesktopFooter = () => {
               />
             </div>
 
-            {/* <div className="lg:mt-10 xl:mt-24 2xl:mt-32 lg:h-52 2xl:h-96"> */}
             <div className="lg:mt-10 xl:mt-24 2xl:mt-32 lg:h-52">
-              {/* <div className="grid grid-cols-6 2xl:grid-cols-4 justify-end"> */}
               <div className="flex justify-between">
-                {/* <div className="max-w-[250px] flex flex-col justify-between col-span-2 2xl:col-span-1"> */}
                 <div className="w-4/12 flex flex-col justify-between col-span-2 2xl:col-span-1">
                   <Fade duration={"left"} triggerOnce>
                     <div
@@ -205,37 +202,65 @@ const DesktopFooter = () => {
                     </h3>
                     <div>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5 whitespace-nowrap">
-                        <a href={"/services/software-development"}>
+                        <a
+                          href={
+                            "https://www.quadque.tech/services/software-development"
+                          }
+                        >
                           Software Development
                         </a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5 whitespace-nowrap">
-                        <a href={"/services/web-development"}>
+                        <a
+                          href={
+                            "https://www.quadque.tech/services/web-development"
+                          }
+                        >
                           Web Development
                         </a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5 whitespace-nowrap">
-                        <a href={"/services/mobile-app-development"}>
+                        <a
+                          href={
+                            "https://www.quadque.tech/services/mobile-app-development"
+                          }
+                        >
                           Mobile App Development
                         </a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5 whitespace-nowrap">
-                        <a href={"/services/ai-iot-solutions"}>
+                        <a
+                          href={
+                            "https://www.quadque.tech/services/ai-iot-solutions"
+                          }
+                        >
                           AI & IoT Solutions
                         </a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5 whitespace-nowrap">
-                        <a href={"/services/e-commerce-development"}>
+                        <a
+                          href={
+                            "https://www.quadque.tech/services/e-commerce-development"
+                          }
+                        >
                           E-Commerce Development
                         </a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5 whitespace-nowrap">
-                        <a href={"/services/cloud-computing-solutions"}>
+                        <a
+                          href={
+                            "https://www.quadque.tech/services/cloud-computing-solutions"
+                          }
+                        >
                           Cloud Computing Solutions
                         </a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5 whitespace-nowrap">
-                        <a href={"/services/maintenance-and-support"}>
+                        <a
+                          href={
+                            "https://www.quadque.tech/services/maintenance-and-support"
+                          }
+                        >
                           Maintenance And Support
                         </a>
                       </h4>
@@ -267,19 +292,19 @@ const DesktopFooter = () => {
                     <div>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
                         {/* <Link to={"../#about"}>About Us</Link> */}
-                        <a href={"https://quadque.tech/#about"}>About Us</a>
+                        <a href={"https://www.quadque.tech/#about"}>About Us</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
-                        <a href={"/career"}>Career</a>
+                        <a href={"../career"}>Career</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
-                        <a href={"/gallery"}>Gallery</a>
+                        <a href={"https://www.quadque.tech/gallery"}>Gallery</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
-                        <a href={"/faq"}>FAQ&apos;s</a>
+                        <a href={"https://www.quadque.tech/faq"}>FAQ&apos;s</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
-                        <a href={"/blogs"}>Blogs</a>
+                        <a href={"../blogs"}>Blogs</a>
                       </h4>
                     </div>
                   </Fade>
