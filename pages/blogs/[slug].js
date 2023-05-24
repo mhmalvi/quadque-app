@@ -7,14 +7,9 @@ import MobileFooter from "../Components/Shared/Footer/Mobile";
 import Meta from "../utils/Meta";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
 
-export default function BlogDetailsPage() {
-  const router = useRouter();
+export default function BlogDetailsPage({ blogDetails }) {
   const [allBlogs, setAllBlogs] = useState([]);
-  const [singleBlogDetails, setSingleBlogDetails] = useState({});
-
-  console.log("router", router?.query?.slug);
 
   useEffect(() => {
     (async () => {
@@ -22,6 +17,8 @@ export default function BlogDetailsPage() {
         const blogRes = await axios.get(
           `https://qqtech-server.quadque.digital/api/manage-blogs`
         );
+        console.log("blogRes.data", blogRes.data);
+        console.log("blogRes?.data", blogRes?.data?.data);
 
         if (blogRes?.data?.status === 200) {
           setAllBlogs(blogRes?.data?.data);
@@ -30,29 +27,16 @@ export default function BlogDetailsPage() {
         console.log(error.response?.data);
       }
     })();
-
-    (async () => {
-      try {
-        const blogDetailsRes = await axios.get(
-          `https://qqtech-server.quadque.digital/api/manage-blogs/${router?.query?.slug}`
-        );
-        if (blogDetailsRes?.data?.status === 200) {
-          setSingleBlogDetails(blogDetailsRes?.data?.data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [router?.query?.slug]);
+  }, []);
 
   return (
     <>
       <Meta
-        title={singleBlogDetails?.title}
-        url={`${process.env.NEXT_CLIENT_URL}/blogs/${singleBlogDetails?.slug}`}
-        description={singleBlogDetails?.meta_description}
-        prevImage={`https://qqtech-server.quadque.digital/public/${singleBlogDetails?.thumbnail}`}
-        keywords={singleBlogDetails?.meta_keywords}
+        title={blogDetails?.title}
+        url={`${process.env.NEXT_CLIENT_URL}/blogs/${blogDetails?.slug}`}
+        description={blogDetails?.meta_description}
+        prevImage={`https://qqtech-server.quadque.digital/public/${blogDetails?.thumbnail}`}
+        keywords={blogDetails?.meta_keywords}
       />
 
       {/* For Desktop  */}
@@ -61,7 +45,7 @@ export default function BlogDetailsPage() {
           <div id="stars"></div>
           <div id="stars2"></div>
           <div id="stars3"></div>
-          <BlogDetails blogDetails={singleBlogDetails} blogs={allBlogs} />
+          <BlogDetails blogDetails={blogDetails} blogs={allBlogs} />
           <div className="w-11/12 mx-auto">
             <DesktopFooter />
           </div>
@@ -71,33 +55,33 @@ export default function BlogDetailsPage() {
       {/* For Mobile  */}
       <div className="block lg:hidden">
         <NavbarMobile />
-        <BlogDetailsMobile blogDetails={singleBlogDetails} blogs={allBlogs} />
+        <BlogDetailsMobile blogDetails={blogDetails} blogs={allBlogs} />
         <MobileFooter />
       </div>
     </>
   );
 }
 
-// export const getServerSideProps = async (context) => {
-//   try {
-//     const blogDetailsRes = await axios.get(
-//       // `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
-//       `https://qqtech-server.quadque.digital/api/manage-blogs/${context.params.slug}`
-//     );
-//     console.log("blogDetailsRes.data", blogDetailsRes.data);
+export const getServerSideProps = async (context) => {
+  try {
+    const blogDetailsRes = await axios.get(
+      // `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
+      `https://qqtech-server.quadque.digital/api/manage-blogs/${context.params.slug}`
+    );
+    console.log("blogDetailsRes.data", blogDetailsRes.data);
 
-//     if (blogDetailsRes?.data?.status === 200) {
-//       return {
-//         props: { blogDetails: blogDetailsRes?.data?.data },
-//       };
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     return {
-//       props: { blogDetails: {} },
-//     };
-//   }
-// };
+    if (blogDetailsRes?.data?.status === 200) {
+      return {
+        props: { blogDetails: blogDetailsRes?.data?.data },
+      };
+    }
+  } catch (error) {
+    console.log(error);
+    return {
+      props: { blogDetails: {} },
+    };
+  }
+};
 // export const getServerSideProps = async (context) => {
 //   const blogDetails = await fetch(
 //     `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
