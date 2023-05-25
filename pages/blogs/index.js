@@ -83,8 +83,12 @@ export default function BlogPage({ blogs }) {
 // };
 
 export const getStaticProps = async () => {
+  const axiosInstance = axios.create({
+    timeout: 10000,
+  });
+
   try {
-    const blogRes = await axios.get(
+    const blogRes = await axiosInstance.get(
       `https://qqtech-server.quadque.digital/api/manage-blogs`
     );
     console.log("blogRes.data", blogRes.data);

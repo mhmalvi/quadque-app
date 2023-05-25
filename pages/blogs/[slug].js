@@ -63,8 +63,11 @@ export default function BlogDetailsPage({ blogDetails }) {
 }
 
 export const getServerSideProps = async (context) => {
+  const axiosInstance = axios.create({
+    timeout: 10000,
+  });
   try {
-    const blogDetailsRes = await axios.get(
+    const blogDetailsRes = await axiosInstance.get(
       // `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
       `https://qqtech-server.quadque.digital/api/manage-blogs/${context.params.slug}`
     );
