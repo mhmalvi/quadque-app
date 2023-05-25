@@ -8,26 +8,26 @@ import Meta from "../utils/Meta";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function BlogDetailsPage({ blogDetails }) {
-  const [allBlogs, setAllBlogs] = useState([]);
+export default function BlogDetailsPage({ blogDetails, blogs }) {
+  // const [allBlogs, setAllBlogs] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const blogRes = await axios.get(
-          `https://qqtech-server.quadque.digital/api/manage-blogs`
-        );
-        console.log("blogRes.data", blogRes.data);
-        console.log("blogRes?.data", blogRes?.data?.data);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const blogRes = await axios.get(
+  //         `https://qqtech-server.quadque.digital/api/manage-blogs`
+  //       );
+  //       console.log("blogRes.data", blogRes.data);
+  //       console.log("blogRes?.data", blogRes?.data?.data);
 
-        if (blogRes?.data?.status === 200) {
-          setAllBlogs(blogRes?.data?.data);
-        }
-      } catch (error) {
-        console.log(error.response?.data);
-      }
-    })();
-  }, []);
+  //       if (blogRes?.data?.status === 200) {
+  //         setAllBlogs(blogRes?.data?.data);
+  //       }
+  //     } catch (error) {
+  //       console.log(error.response?.data);
+  //     }
+  //   })();
+  // }, []);
 
   return (
     <>
@@ -45,7 +45,7 @@ export default function BlogDetailsPage({ blogDetails }) {
           <div id="stars"></div>
           <div id="stars2"></div>
           <div id="stars3"></div>
-          <BlogDetails blogDetails={blogDetails} blogs={allBlogs} />
+          <BlogDetails blogDetails={blogDetails} blogs={blogs} />
           <div className="w-11/12 mx-auto">
             <DesktopFooter />
           </div>
@@ -55,7 +55,7 @@ export default function BlogDetailsPage({ blogDetails }) {
       {/* For Mobile  */}
       <div className="block lg:hidden">
         <NavbarMobile />
-        <BlogDetailsMobile blogDetails={blogDetails} blogs={allBlogs} />
+        <BlogDetailsMobile blogDetails={blogDetails} blogs={blogs} />
         <MobileFooter />
       </div>
     </>
@@ -71,17 +71,23 @@ export const getServerSideProps = async (context) => {
       // `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
       `https://qqtech-server.quadque.digital/api/manage-blogs/${context.params.slug}`
     );
-    console.log("blogDetailsRes.data", blogDetailsRes.data);
 
-    if (blogDetailsRes?.data?.status === 200) {
+    const blogRes = await axiosInstance.get(
+      `https://qqtech-server.quadque.digital/api/manage-blogs`
+    );
+
+    if (blogDetailsRes?.data?.status === 200 && blogRes?.data?.status === 200) {
       return {
-        props: { blogDetails: blogDetailsRes?.data?.data },
+        props: {
+          blogDetails: blogDetailsRes?.data?.data,
+          blogs: blogRes?.data?.data,
+        },
       };
     }
   } catch (error) {
     console.log(error);
     return {
-      props: { blogDetails: {} },
+      props: { blogDetails: {}, blogs: [] },
     };
   }
 };

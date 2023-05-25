@@ -72,15 +72,6 @@ export default function BlogPage({ blogs }) {
   );
 }
 
-// export const getStaticProps = async () => {
-//   const res = await fetch(`${process.env.NEXT_SERVICE_URL}/api/manage-blogs`);
-//   const blogRes = await res.json();
-
-//   return {
-//     props: { blogs: blogRes?.data },
-//   };
-//   // }
-// };
 
 export const getStaticProps = async () => {
   const axiosInstance = axios.create({
