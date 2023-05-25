@@ -9,7 +9,7 @@ import Meta from "../utils/Meta";
 import { useEffect, useState } from "react";
 
 export default function BlogPage({ blogs }) {
-  // console.log("blogs", blogs);
+  console.log("blogs", blogs);
   const [allBlogs, setAllBlogs] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function BlogPage({ blogs }) {
           console.log("blogRes?.data", blogRes?.data?.data);
 
           if (blogRes?.data?.status === 200) {
-            setAllBlogs(blogRes?.data?.data);
+            setAllBlogs(blogRes?.data?.data?.slice(0, 2));
           }
         } catch (error) {
           console.log(error.response?.data);
