@@ -72,10 +72,9 @@ export default function BlogPage({ blogs }) {
   );
 }
 
-
 export const getStaticProps = async () => {
   const axiosInstance = axios.create({
-    timeout: 5000,
+    timeout: 0,
   });
 
   try {
