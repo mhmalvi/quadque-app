@@ -155,7 +155,6 @@ const Navbar = ({ setOpenMenus }) => {
             onMouseOut={() => {
               setShowBgShadow("");
             }}
-            // onClick={() => handleNavigate("blogs")}
           >
             <div
               className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex text-white hover:text-brand-color hover:transition-colors hover:delay-200 cursor-pointer"
