@@ -65,7 +65,7 @@ export default function BlogDetailsPage({ blogDetails }) {
 export const getServerSideProps = async (context) => {
   console.log("context.params.slug", context?.params?.slug);
   const axiosInstance = axios.create({
-    timeout: 10000,
+    timeout: 60000,
   });
   try {
     const blogDetailsRes = await axiosInstance.get(
