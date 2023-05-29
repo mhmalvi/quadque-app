@@ -86,17 +86,17 @@ const MobileFooter = () => {
 
       <div className="flex mt-10 px-6 gap-2">
         <div className="w-1/2 flex-col leading-10">
-          <Link href="../career" className="my-2">
-            Career
-          </Link>
-          <Link href={`https://www.quadque.tech/faq`}>
-            <p className="my-2">FAQ&apos;s</p>
-          </Link>
           <Link href="https://www.quadque.tech/#Service" className="my-2">
             Services
           </Link>
           <Link href={`https://www.quadque.tech/products`}>
             <p className="my-2">Products</p>
+          </Link>
+          <Link href="../career" className="my-2">
+            Career
+          </Link>
+          <Link href={`https://www.quadque.tech/faq`}>
+            <p className="my-2">FAQ&apos;s</p>
           </Link>
         </div>
         <div className="w-1/2 flex-col leading-10">
