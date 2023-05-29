@@ -9,7 +9,7 @@
     "build-local": "env-cmd -f .env.development.local next build",
     "build-prod": "env-cmd -f .env.production next build",
     "export-prod": "env-cmd -f .env.production next build && next export",
-    "start": "env-cmd -f .env.production next start",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
