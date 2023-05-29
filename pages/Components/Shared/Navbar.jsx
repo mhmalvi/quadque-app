@@ -163,7 +163,7 @@ const Navbar = ({ setOpenMenus }) => {
             >
               <span className="p-0 m-0 uppercase font_title">BLOGS</span>
               <span className="lg:text-base xl:text-lg 2xl:text-3xl  mb-auto font_title">
-                #04
+                #05
               </span>
               <Image
                 className={`absolute ${
@@ -192,7 +192,7 @@ const Navbar = ({ setOpenMenus }) => {
             >
               <span className="p-0 m-0 uppercase font_title">CONTACT</span>
               <span className="lg:text-base xl:text-lg 2xl:text-3xl  mb-auto font_title">
-                #05
+                #06
               </span>
               <Image
                 className={`absolute ${
