@@ -73,10 +73,6 @@ export const getStaticProps = async (context) => {
       `https://qqtech-server.quadque.digital/api/manage-blogs/${context?.params?.slug}`
     );
 
-    // const blogRes = await axiosInstance.get(
-    //   `https://qqtech-server.quadque.digital/api/manage-blogs`
-    // );
-
     if (blogDetailsRes?.data?.status === 200) {
       return {
         props: {
@@ -89,6 +85,29 @@ export const getStaticProps = async (context) => {
     return {
       props: { blogDetails: {} },
     };
+  }
+};
+
+export const getStaticPaths = async () => {
+  try {
+    const blogRes = await axios.get(
+      `https://qqtech-server.quadque.digital/api/manage-blogs`
+    );
+
+    if (blogRes?.data?.status === 200) {
+      const paths = blogRes?.data?.data?.map((blog) => {
+        return {
+          params: { slug: `${blog?.slug}` },
+        };
+      });
+
+      return {
+        paths,
+        fallback: false,
+      };
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 // export const getServerSideProps = async (context) => {
