@@ -110,7 +110,7 @@ const DesktopBaseLayout = ({ children }) => {
             </span>
           </div>
 
-          <div className="social_media mb-16 -rotate-90 flex justify-center items-center">
+          <div className="social_media mb-28 -rotate-90 flex justify-center items-center">
             <Tooltip
               placement="right"
               title="Facebook"
@@ -124,22 +124,6 @@ const DesktopBaseLayout = ({ children }) => {
                 className="uppercase font-semibold text-xl leading-[175%] font_primary mr-4 hover:text-[blue] transition-colors delay-150 "
               >
                 fb
-              </a>
-            </Tooltip>
-
-            <Tooltip
-              placement="right"
-              title="Instagram"
-              // color={"#F701A2"}
-              color={"rgba(90, 90, 90, 0.7)"}
-            >
-              <a
-                href="https://www.instagram.com/quadquetech/"
-                rel="noreferrer"
-                target="_blank"
-                className="uppercase font-semibold text-xl leading-[175%] font_primary mr-4 hover:text-[#F701A2] transition-colors delay-150 "
-              >
-                in
               </a>
             </Tooltip>
 
@@ -161,6 +145,37 @@ const DesktopBaseLayout = ({ children }) => {
 
             <Tooltip
               placement="right"
+              title="Instagram"
+              // color={"#F701A2"}
+              color={"rgba(90, 90, 90, 0.7)"}
+            >
+              <a
+                href="https://www.instagram.com/quadquetech/"
+                rel="noreferrer"
+                target="_blank"
+                className="uppercase font-semibold text-xl leading-[175%] font_primary mr-4 hover:text-[#F701A2] transition-colors delay-150 "
+              >
+                in
+              </a>
+            </Tooltip>
+
+            <Tooltip
+              placement="right"
+              title="Twitter"
+              color={"rgba(90, 90, 90, 0.7)"}
+            >
+              <a
+                href="https://twitter.com/QuadqueT"
+                target="_blank"
+                className="uppercase font-semibold text-xl leading-[175%] font_primary mr-4 hover:text-[#00acee] transition-colors delay-150 "
+                rel="noreferrer"
+              >
+                tw
+              </a>
+            </Tooltip>
+
+            <Tooltip
+              placement="right"
               title="LinkedIn"
               color={"rgba(90, 90, 90, 0.7)"}
             >
@@ -171,6 +186,21 @@ const DesktopBaseLayout = ({ children }) => {
                 rel="noreferrer"
               >
                 ln
+              </a>
+            </Tooltip>
+
+            <Tooltip
+              placement="right"
+              title="Tiktok"
+              color={"rgba(90, 90, 90, 0.7)"}
+            >
+              <a
+                href="https://www.tiktok.com/@quadque"
+                target="_blank"
+                className="uppercase font-semibold text-xl leading-[175%] font_primary mr-4 hover:text-[#ff0050] transition-colors delay-150 "
+                rel="noreferrer"
+              >
+                tk
               </a>
             </Tooltip>
           </div>

@@ -118,6 +118,34 @@ const Navbar = ({ setOpenMenus }) => {
         </div>
 
         <div className="flex mt-20">
+          <a
+            href="https://www.quadque.tech/products"
+            className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex mr-20"
+            onMouseOver={() => {
+              setShowBgShadow("PRODUCTS");
+            }}
+            onMouseOut={() => {
+              setShowBgShadow("");
+            }}
+            onClick={() => handleNavigate("products")}
+          >
+            <div
+              className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px] flex text-white hover:text-brand-color hover:transition-colors hover:delay-200 cursor-pointer"
+              onClick={() => setOpenMenus(false)}
+            >
+              <span className="p-0 m-0 uppercase font_title">PRODUCTS</span>
+              <span className="lg:text-base xl:text-lg 2xl:text-3xl  mb-auto font_title">
+                #04
+              </span>
+              <Image
+                className={`absolute ${
+                  showBgShadow === "PRODUCTS" ? "opacity-100" : "opacity-0"
+                } transition-opacity delay-200 -top-2 right-0 lg:w-[65%] xl:w-[70%] 2xl:w-32`}
+                src={bgShadowLogo}
+                alt="Background Shadow Logo"
+              />
+            </div>
+          </a>
           <Link
             href="/blogs"
             className="relative font-semibold lg:text-[28px] xl:text-[36px] 2xl:text-[50px]  flex mr-20"

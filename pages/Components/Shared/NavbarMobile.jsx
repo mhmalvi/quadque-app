@@ -106,6 +106,10 @@ const NavbarMobile = () => {
           </div>
 
           <div onClick={() => setOpen(false)} className="font_title">
+            <Link href="https://www.quadque.tech/products">Products</Link>
+          </div>
+
+          <div onClick={() => setOpen(false)} className="font_title">
             <Link href="../blogs">Blogs</Link>
           </div>
 

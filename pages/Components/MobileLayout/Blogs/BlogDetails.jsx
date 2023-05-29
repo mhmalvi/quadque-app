@@ -1,16 +1,14 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 // import "../MobileView.css";
 import Link from "next/link";
-import Meta from "../../../utils/Meta";
 import GoBackArrow from "../../../../public/assets/Icons/go-back-arrow.svg";
 import loaderFile from "../../../../public/assets/Lotties/loader.json";
+import Meta from "../../../utils/Meta";
 import LottiePlayer from "../../Shared/LottiePlayer";
+import axios from "axios";
 
 const BlogDetails = ({ blogDetails, blogs }) => {
-  const router = useRouter();
-  const loaderRef = useRef(null);
   const [randomBlogData, setRandomBlogData] = useState([]);
   const [loader, setLoader] = useState(true);
 
@@ -20,7 +18,17 @@ const BlogDetails = ({ blogDetails, blogs }) => {
     }
   }, []);
 
-  console.log("randomBlogData", randomBlogData);
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await axios.post(
+          `https://qqtech-server.quadque.digital/api/counter`
+        );
+      } catch (error) {
+        console.log(error.response?.data);
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     setLoader(true);

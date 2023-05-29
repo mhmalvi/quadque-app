@@ -2,25 +2,23 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import axios from "axios";
+import CountUp from "react-countup";
 import address from ".././../../../public/assets/Images/address.png";
 import bgAus from ".././../../../public/assets/Images/background_aus.jpg";
 import bgBD from ".././../../../public/assets/Images/background_bd.jpg";
-
+import basisLogo from ".././../../../public/assets/Images/basis_logo.png";
 import BluePhone from "../../../../public/assets/Icons/blue_phone.svg";
 import FacebookDesktop from "../../../../public/assets/Icons/facebook-desktop.svg";
 import FooterIcon from "../../../../public/assets/Icons/footer-icon.svg";
 import InstaDesktop from "../../../../public/assets/Icons/insta-desktop.svg";
 import TwiterDesktop from "../../../../public/assets/Icons/twiter-desktop.svg";
 import YoutubeDesktop from "../../../../public/assets/Icons/youtube-desktop.svg";
-
-// import {
-//   BluePhone,
-//   FacebookDesktop,
-//   FooterIcon,
-//   InstaDesktop,
-//   TwiterDesktop,
-//   YoutubeDesktop,
-// } from "../Icons";
+import Viewers from "../../../../public/assets/Icons/viewer.svg";
+import FooterLinkedin from "../../../../public/assets/Icons/linkedin.svg";
+import FooterTiktok from "../../../../public/assets/Icons/tiktok.svg";
+import Location from "../../../../public/assets/Icons/location.svg";
+import Mailbox from "../../../../public/assets/Icons/email.svg";
 
 const DesktopFooter = () => {
   //   const location = useLocation();
@@ -28,8 +26,23 @@ const DesktopFooter = () => {
   const [triggerAnimation, setTriggerAnimation] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState("");
   const [year, setYear] = useState("");
+  const [viewerCount, setViewerCount] = useState(0);
 
-  //   const synth = window.speechSynthesis;
+  useEffect(() => {
+    (async () => {
+      try {
+        const countRes = await axios.get(
+          `https://qqtech-server.quadque.digital/api/get-counter`
+        );
+
+        if (countRes?.data?.status === 200) {
+          setViewerCount(countRes?.data?.data?.[0]?.counter);
+        }
+      } catch (error) {
+        console.log(error.response?.data);
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     const date = new Date();
@@ -115,37 +128,30 @@ const DesktopFooter = () => {
                       services.
                     </div>
                     <div>
-                      <div className="mb-6 ml-1 text-xs xl:text-sm">
-                        <h4
-                          onMouseOver={() => {
-                            setBackgroundImage(bgAus);
-                            setTriggerAnimation(!triggerAnimation);
-                          }}
-                          onMouseOut={() => {
-                            setBackgroundImage("");
-                            // setTriggerAnimation(false);
-                          }}
-                        >
-                          <span>Australia: </span>
-                          <a href="mailto:">hello@quadque.tech</a>
-                        </h4>
+                      <div className="w-full flex items-stretch ">
+                        <div className="w-5/12">
+                          <Image src={basisLogo} className="my-4" alt="" />
+                        </div>
 
-                        <h4
-                          onMouseOver={() => {
-                            setBackgroundImage(bgBD);
-                            setTriggerAnimation(!triggerAnimation);
-                          }}
-                          onMouseOut={() => {
-                            setBackgroundImage("");
-                            // setTriggerAnimation(false);
-                          }}
-                        >
-                          <span>Bangladesh: </span>
-                          <a href="mailto:info@quadque.tech">
-                            info@quadque.tech
-                          </a>
-                        </h4>
+                        <div className="w-7/12 pl-6 ml-6 border-l-2 border-gray-400 flex flex-col justify-center items-center my-4">
+                          <div className="text-white whitespace-nowrap xl:text-sm 2xl:text-base font-semibold font_primary">
+                            Total Visitors
+                          </div>
+                          <div className="min-w-full relative font-semibold xl:text-xl 2xl:text-3.5xl flex items-center">
+                            <Viewers className="w-5 xl:w-8 2xl:w-10 mr-auto text-brand-color" />
+                            <div className="absolute left-10 2xl:left-12">
+                              <CountUp
+                                className="font_title"
+                                start={0}
+                                end={viewerCount}
+                                duration={3}
+                              />
+                              +
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
                       <div className="flex items-center">
                         <a
                           className="pl-1"
@@ -160,7 +166,7 @@ const DesktopFooter = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <YoutubeDesktop className="mx-4" />
+                          <YoutubeDesktop className="mx-4 text-xl" />
                         </a>
 
                         <a
@@ -176,6 +182,20 @@ const DesktopFooter = () => {
                           rel="noopener noreferrer"
                         >
                           <TwiterDesktop />
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/company/quadque-technologies-ltd/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FooterLinkedin className="w-4 ml-4" />
+                        </a>
+                        <a
+                          href="https://www.tiktok.com/@quadque"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FooterTiktok className="w-4 ml-3.5" />
                         </a>
                       </div>
                     </div>
@@ -295,6 +315,11 @@ const DesktopFooter = () => {
                         <a href={"https://www.quadque.tech/#about"}>About Us</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
+                        <a href={"https://www.quadque.tech/products"}>
+                          Products
+                        </a>
+                      </h4>
+                      <h4 className="text-xs xl:text-sm font-normal mb-2.5">
                         <a href={"../career"}>Career</a>
                       </h4>
                       <h4 className="text-xs xl:text-sm font-normal mb-2.5">
@@ -311,36 +336,53 @@ const DesktopFooter = () => {
                 </div>
 
                 <div className="w-4/12 ml-9 font_primary">
-                  <Fade duration={"left"} triggerOnce>
+                  <Fade left>
                     <h3 className="text-base xl:text-lg font-medium mb-6">
-                      Address
+                      Find Us
                     </h3>
                     <div>
-                      <div className="relative">
-                        <div className="text-xs xl:text-sm font-normal mb-2 2xl:mb-2.5">
-                          <div className="leading-6 mb-2">
+                      <div
+                        className="relative"
+                        onMouseOver={() => {
+                          setBackgroundImage(bgAus);
+                          setTriggerAnimation(!triggerAnimation);
+                        }}
+                        onMouseLeave={() => {
+                          setBackgroundImage("");
+                        }}
+                      >
+                        <div className="text-xs xl:text-sm font-normal mb-2 2xl:mb-3">
+                          <div className="leading-6">
                             <p className="flex items-start">
-                              <Image
-                                className="w-6 mr-2.5"
-                                src={address}
-                                alt="Address"
-                              />
+                              <Location className="w-5 text-brand-color mr-2.5" />
                               <span>
                                 Level 1, 7 Greenfield Parade Bankstown, NSW
                                 2200, Australia.
                               </span>
                             </p>
                           </div>
-                          <div className="leading-6 flex items-start">
-                            <span>
-                              <BluePhone className="mr-2.5 text-brand-color" />
-                            </span>
-                            <span>
-                              <a href="tel:+61405899496">+61405899496</a>
-                            </span>
+
+                          <div className="flex items-center pt-2">
+                            <div className="flex items-center">
+                              <span className="mr-2.5">
+                                <Mailbox className="w-5 text-brand-color" />
+                              </span>
+                              <a href="mailto:hello@quadque.tech">
+                                hello@quadque.tech
+                              </a>
+                            </div>
+                            <div className="mx-3 my-auto">|</div>
+                            <div className="flex items-center">
+                              <span>
+                                <BluePhone className="w-4 mr-2.5 text-brand-color" />
+                              </span>
+                              <span>
+                                <a href="tel:+61405899496">+61405899496</a>
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <div
+                        {/* <div
                           className="min-h-full min-w-full absolute top-0 left-0 right-0 bottom-0 bg-transparent z-50"
                           onMouseOver={() => {
                             setBackgroundImage(bgAus);
@@ -349,44 +391,53 @@ const DesktopFooter = () => {
                           onMouseLeave={() => {
                             setBackgroundImage("");
                           }}
-                        ></div>
+                        ></div> */}
                       </div>
 
-                      <div className="relative">
+                      <div
+                        className="relative pt-2"
+                        onMouseOver={() => {
+                          setBackgroundImage(bgBD);
+                          setTriggerAnimation(!triggerAnimation);
+                        }}
+                        onMouseLeave={() => {
+                          setBackgroundImage("");
+                        }}
+                      >
                         <div className="text-xs xl:text-sm font-normal mb-2 2xl:mb-2.5">
-                          <div className="leading-6 mb-2">
+                          <div className="leading-6 mt-2">
                             <p className="flex items-start">
-                              <Image
-                                className="w-6 mr-2.5"
-                                src={address}
-                                alt="Address"
-                              />
+                              <Location className="w-5 text-brand-color mr-2.5" />
                               <span>
                                 Level -7, 8/C, F.R Tower, Panthapath, Dhaka
                                 1207, Bangladesh.
                               </span>
                             </p>
                           </div>
-
-                          <div className="leading-6 flex items-center">
-                            <span>
-                              <BluePhone className="mr-2.5 text-brand-color" />
-                            </span>
-                            <span>
-                              <a href="tel:+8801765276560">+8801765276560</a>
-                            </span>
+                          <div className="flex items-center pt-2">
+                            <div className="flex items-center">
+                              <span className="mr-2.5">
+                                <Mailbox className="w-5 text-brand-color" />
+                              </span>
+                              <a href="mailto:info@quadque.tech">
+                                info@quadque.tech
+                              </a>
+                            </div>
+                            <div className="mx-3 my-auto">|</div>
+                            <div className="flex items-center">
+                              <span>
+                                <BluePhone className="w-4 mr-2.5 text-brand-color" />
+                              </span>
+                              <span>
+                                <a href="tel:+8801765276560">+8801765276560</a>
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <div
+                        {/* <div
                           className="min-h-full min-w-full absolute top-0 left-0 right-0 bottom-0 bg-transparent z-50"
-                          onMouseOver={() => {
-                            setBackgroundImage(bgBD);
-                            setTriggerAnimation(!triggerAnimation);
-                          }}
-                          onMouseLeave={() => {
-                            setBackgroundImage("");
-                          }}
-                        ></div>
+                          
+                        ></div> */}
                       </div>
                     </div>
                   </Fade>
