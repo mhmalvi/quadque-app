@@ -62,7 +62,7 @@ export default function BlogDetailsPage({ blogDetails }) {
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   console.log("context.params.slug", context?.params?.slug);
   const axiosInstance = axios.create({
     timeout: 60000,
