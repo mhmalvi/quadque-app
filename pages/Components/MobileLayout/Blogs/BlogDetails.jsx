@@ -71,7 +71,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
       ) : (
         <div
           className={`w-full pt-20 font_primary bg-black ${
-            !blogDetails ? "scale-0" : ""
+            !blogDetails?.id ? "scale-0" : ""
           } `}
         >
           {/* <div className="w-full h-[5.75rem] bg-black absolute top-0"></div> */}
