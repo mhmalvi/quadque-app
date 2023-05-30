@@ -11,10 +11,14 @@ import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
 export default function BlogPage() {
   const [allBlogs, setAllBlogs] = useState([]);
 
+  const axiosInstance = axios.create({
+    timeout: 120000,
+  });
+
   useEffect(() => {
     (async () => {
       try {
-        const blogRes = await axios.get(
+        const blogRes = await axiosInstance.get(
           `https://qqtech-server.quadque.digital/api/manage-blogs`
         );
         console.log("blogRes.data", blogRes.data);
