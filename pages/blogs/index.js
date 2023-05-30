@@ -4,9 +4,9 @@ import DesktopBaseLayout from "../Components/DesktopLayout/DesktopBaseLayout";
 import BlogsGallery from "../Components/MobileLayout/Blogs";
 import DesktopFooter from "../Components/Shared/Footer/Desktop";
 import MobileFooter from "../Components/Shared/Footer/Mobile";
-import NavbarMobile from "../Components/Shared/NavbarMobile";
 import Meta from "../utils/Meta";
 import { useEffect, useState } from "react";
+import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
 
 export default function BlogPage({ blogs }) {
   console.log("blogs", blogs);

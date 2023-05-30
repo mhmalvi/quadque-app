@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export default function CareerDetails({ careerDetails }) {
-  console.log("careerDetails", careerDetails);
   const router = useRouter();
   const [loader, setLoader] = useState(true);
 

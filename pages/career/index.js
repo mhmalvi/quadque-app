@@ -4,8 +4,8 @@ import DesktopFooter from "../Components/Shared/Footer/Desktop";
 import Meta from "../utils/Meta";
 import Career from "../Components/DesktopLayout/Career";
 import CareerMoblie from "../Components/MobileLayout/Career";
-import NavbarMobile from "../Components/Shared/NavbarMobile";
 import MobileFooter from "../Components/Shared/Footer/Mobile";
+import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
 
 export default function CareerPage({ career }) {
   return (

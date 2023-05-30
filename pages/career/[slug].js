@@ -4,8 +4,8 @@ import CareerDetailsMobile from "../Components/MobileLayout/Career/CareerDetails
 import DesktopBaseLayout from "../Components/DesktopLayout/DesktopBaseLayout";
 import DesktopFooter from "../Components/Shared/Footer/Desktop";
 import MobileFooter from "../Components/Shared/Footer/Mobile";
-import NavbarMobile from "../Components/Shared/NavbarMobile";
 import Meta from "../utils/Meta";
+import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
 
 export default function CareerDetailsPage({ career, slug }) {
   const [careerDetails, setCareerDetails] = useState({});
@@ -13,8 +13,6 @@ export default function CareerDetailsPage({ career, slug }) {
   useEffect(() => {
     setCareerDetails(career?.find((post) => post.slug === slug));
   }, [career, slug]);
-
-  console.log("careerDetails", careerDetails);
 
   return (
     <>
