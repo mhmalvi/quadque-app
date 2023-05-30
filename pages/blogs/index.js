@@ -8,29 +8,26 @@ import Meta from "../utils/Meta";
 import { useEffect, useState } from "react";
 import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
 
-export default function BlogPage({ blogs }) {
-  console.log("blogs", blogs);
+export default function BlogPage() {
   const [allBlogs, setAllBlogs] = useState([]);
 
   useEffect(() => {
-    if (!blogs.length) {
-      (async () => {
-        try {
-          const blogRes = await axios.get(
-            `https://qqtech-server.quadque.digital/api/manage-blogs`
-          );
-          console.log("blogRes.data", blogRes.data);
-          console.log("blogRes?.data", blogRes?.data?.data);
+    (async () => {
+      try {
+        const blogRes = await axios.get(
+          `https://qqtech-server.quadque.digital/api/manage-blogs`
+        );
+        console.log("blogRes.data", blogRes.data);
+        console.log("blogRes?.data", blogRes?.data?.data);
 
-          if (blogRes?.data?.status === 200) {
-            setAllBlogs(blogRes?.data?.data?.slice(0, 2));
-          }
-        } catch (error) {
-          console.log(error.response?.data);
+        if (blogRes?.data?.status === 200) {
+          setAllBlogs(blogRes?.data?.data);
         }
-      })();
-    }
-  }, [blogs]);
+      } catch (error) {
+        console.log(error.response?.data);
+      }
+    })();
+  }, []);
 
   return (
     <div>
@@ -50,7 +47,7 @@ export default function BlogPage({ blogs }) {
             <div id="stars2"></div>
             <div id="stars3"></div>
             <div className="w-9/12 mx-auto my-24">
-              <Blogs blogs={blogs.length ? blogs : allBlogs} />
+              <Blogs blogs={allBlogs} />
             </div>
             <div className="w-11/12 mx-auto">
               <DesktopFooter />
@@ -63,7 +60,7 @@ export default function BlogPage({ blogs }) {
           <div id="stars3"></div>
           <>
             <NavbarMobile />
-            <BlogsGallery blogs={blogs.length ? blogs : allBlogs} />
+            <BlogsGallery blogs={allBlogs} />
             <MobileFooter />
           </>
         </div>
@@ -72,27 +69,27 @@ export default function BlogPage({ blogs }) {
   );
 }
 
-export const getStaticProps = async () => {
-  const axiosInstance = axios.create({
-    timeout: 60000,
-  });
+// export const getStaticProps = async () => {
+//   const axiosInstance = axios.create({
+//     timeout: 60000,
+//   });
 
-  try {
-    const blogRes = await axiosInstance.get(
-      `https://qqtech-server.quadque.digital/api/manage-blogs`
-    );
-    console.log("blogRes.data", blogRes.data);
-    console.log("blogRes?.data", blogRes?.data?.data);
+//   try {
+//     const blogRes = await axiosInstance.get(
+//       `https://qqtech-server.quadque.digital/api/manage-blogs`
+//     );
+//     console.log("blogRes.data", blogRes.data);
+//     console.log("blogRes?.data", blogRes?.data?.data);
 
-    if (blogRes?.data?.status === 200) {
-      return {
-        props: { blogs: blogRes?.data?.data },
-      };
-    }
-  } catch (error) {
-    console.log(error);
-    return {
-      props: { blogs: [] },
-    };
-  }
-};
+//     if (blogRes?.data?.status === 200) {
+//       return {
+//         props: { blogs: blogRes?.data?.data },
+//       };
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     return {
+//       props: { blogs: [] },
+//     };
+//   }
+// };

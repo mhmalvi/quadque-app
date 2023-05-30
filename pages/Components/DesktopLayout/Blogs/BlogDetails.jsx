@@ -18,6 +18,8 @@ const BlogDetails = ({ blogDetails, blogs }) => {
   const [loader, setLoader] = useState(false);
   // const synth = window.speechSynthesis;
 
+  console.log("From Blog Details Page", blogDetails);
+
   useEffect(() => {
     (async () => {
       try {
