@@ -11,11 +11,11 @@ import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
 export default function BlogPage() {
   const [allBlogs, setAllBlogs] = useState([]);
 
-  const axiosInstance = axios.create({
-    timeout: 120000,
-  });
-
   useEffect(() => {
+    const axiosInstance = axios.create({
+      timeout: 120000,
+    });
+
     (async () => {
       try {
         const blogRes = await axiosInstance.get(
