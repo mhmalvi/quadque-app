@@ -76,7 +76,7 @@ export default function BlogDetailsPage({ blogMetaDetails }) {
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const axiosInstance = axios.create({
     timeout: 120000,
   });
@@ -126,6 +126,7 @@ export const getServerSideProps = async (context) => {
 //     console.log(error);
 //   }
 // };
+
 // export const getServerSideProps = async (context) => {
 //   const blogDetails = await fetch(
 //     `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
