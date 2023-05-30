@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import bgShadowLogo from "../../../public/assets/Images/bg-logo-shadow.png";
-import brandLogo from "../../../public/assets/Images/brand_logo.png";
-import astronaut from "../../../public/assets/Images/navbar_astronaut.png";
+import bgShadowLogo from "../../../../public/assets/Images/bg-logo-shadow.png";
+import brandLogo from "../../../../public/assets/Images/brand_logo.png";
+import astronaut from "../../../../public/assets/Images/navbar_astronaut.png";
 import Image from "next/image";
 import Link from "next/link";
 

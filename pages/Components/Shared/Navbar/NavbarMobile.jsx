@@ -1,9 +1,9 @@
 import { Button, Modal } from "antd";
 import { useState } from "react";
-import Tagline from "../../../public/assets/Images/mobile-tagline.png";
+import Tagline from "../../../../public/assets/Images/mobile-tagline.png";
 import Link from "next/link";
 import Image from "next/image";
-import BrandLogoMob from "../../../public/assets/Icons/navbar-logo.svg";
+import BrandLogoMob from "../../../../public/assets/Icons/navbar-logo.svg";
 
 const NavbarMobile = () => {
   const [open, setOpen] = useState(false);

@@ -6,10 +6,10 @@ import unmuteImg from "../../../public/assets/Images/unmute.png";
 import welcomeAvatar from "../../../public/assets/Lotties/welcome_avatar.json";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../Shared/Navbar";
 import BrandLogo from "../../../public/assets/Icons/brandlogo.svg";
 import LottiePlayer from "../Shared/LottiePlayer";
 import useSound from "use-sound";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const DesktopBaseLayout = ({ children }) => {
   const [play, { stop }] = useSound("/assets/Audio/site_audio.mp3");
@@ -36,6 +36,7 @@ const DesktopBaseLayout = ({ children }) => {
     } else {
       play();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [muted]);
 
   useEffect(() => {

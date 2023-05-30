@@ -1,15 +1,17 @@
-import BlogDetails from "../Components/DesktopLayout/Blogs/BlogDetails";
-import BlogDetailsMobile from "../Components/MobileLayout/Blogs/BlogDetails";
-import DesktopBaseLayout from "../Components/DesktopLayout/DesktopBaseLayout";
-import DesktopFooter from "../Components/Shared/Footer/Desktop";
-import NavbarMobile from "../Components/Shared/NavbarMobile";
-import MobileFooter from "../Components/Shared/Footer/Mobile";
-import Meta from "../utils/Meta";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import BlogDetails from "../Components/DesktopLayout/Blogs/BlogDetails";
+import DesktopBaseLayout from "../Components/DesktopLayout/DesktopBaseLayout";
+import BlogDetailsMobile from "../Components/MobileLayout/Blogs/BlogDetails";
+import MobileFooter from "../Components/Shared/Footer/Mobile";
+import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
+import Meta from "../utils/Meta";
 
-export default function BlogDetailsPage({ blogDetails }) {
+export default function BlogDetailsPage({ blogMetaDetails }) {
   const [allBlogs, setAllBlogs] = useState([]);
+  const [blogDetails, setBlogDetails] = useState({});
+
+  console.log("blogMetaDetails", blogMetaDetails);
 
   useEffect(() => {
     (async () => {
@@ -27,16 +29,31 @@ export default function BlogDetailsPage({ blogDetails }) {
         console.log(error.response?.data);
       }
     })();
-  }, []);
+    (async () => {
+      try {
+        const blogDetailsRes = await axios.get(
+          `https://qqtech-server.quadque.digital/api/manage-blogs/${blogMetaDetails?.slug}`
+        );
+
+        console.log("blogDetailsRes", blogDetailsRes);
+
+        if (blogDetailsRes?.data?.status === 200) {
+          setBlogDetails(blogDetailsRes?.data?.data);
+        }
+      } catch (error) {
+        console.log(error.response?.data);
+      }
+    })();
+  }, [blogMetaDetails]);
 
   return (
     <>
       <Meta
-        title={blogDetails?.title}
-        url={`${process.env.NEXT_CLIENT_URL}/blogs/${blogDetails?.slug}`}
-        description={blogDetails?.meta_description}
-        prevImage={`https://qqtech-server.quadque.digital/public/${blogDetails?.thumbnail}`}
-        keywords={blogDetails?.meta_keywords}
+        title={blogMetaDetails?.title}
+        url={`${process.env.NEXT_CLIENT_URL}/blogs/${blogMetaDetails?.slug}`}
+        description={blogMetaDetails?.meta_description}
+        prevImage={`https://qqtech-server.quadque.digital/public/${blogMetaDetails?.thumbnail}`}
+        keywords={blogMetaDetails?.meta_keywords}
       />
 
       {/* For Desktop  */}
@@ -46,7 +63,6 @@ export default function BlogDetailsPage({ blogDetails }) {
           <div id="stars2"></div>
           <div id="stars3"></div>
           <BlogDetails blogDetails={blogDetails} blogs={allBlogs} />
-         
         </DesktopBaseLayout>
       </div>
 
@@ -61,27 +77,29 @@ export default function BlogDetailsPage({ blogDetails }) {
 }
 
 export const getStaticProps = async (context) => {
-  console.log("context.params.slug", context?.params?.slug);
-  const axiosInstance = axios.create({
-    timeout: 60000,
-  });
+  // const axiosInstance = axios.create({
+  //   timeout: 60000,
+  // });
   try {
-    const blogDetailsRes = await axiosInstance.get(
+    const blogMetaDetailsRes = await axios.post(
       // `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
-      `https://qqtech-server.quadque.digital/api/manage-blogs/${context?.params?.slug}`
+      `https://qqtech-server.quadque.digital/api/get-meta-tags`,
+      {
+        slug: context?.params?.slug,
+      }
     );
 
-    if (blogDetailsRes?.data?.status === 200) {
+    if (blogMetaDetailsRes?.data?.status === 200) {
       return {
         props: {
-          blogDetails: blogDetailsRes?.data?.data,
+          blogMetaDetails: blogMetaDetailsRes?.data?.data,
         },
       };
     }
   } catch (error) {
     console.log(error);
     return {
-      props: { blogDetails: {} },
+      props: { blogMetaDetails: {} },
     };
   }
 };
