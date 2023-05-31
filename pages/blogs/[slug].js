@@ -7,11 +7,11 @@ import MobileFooter from "../Components/Shared/Footer/Mobile";
 import NavbarMobile from "../Components/Shared/Navbar/NavbarMobile";
 import Meta from "../utils/Meta";
 
-export default function BlogDetailsPage({ blogMetaDetails }) {
+export default function BlogDetailsPage({ blogDetails }) {
   const [allBlogs, setAllBlogs] = useState([]);
-  const [blogDetails, setBlogDetails] = useState({});
+  // const [blogDetails, setBlogDetails] = useState({});
 
-  console.log("blogMetaDetails", blogMetaDetails);
+  console.log("blogDetails", blogDetails);
 
   useEffect(() => {
     (async () => {
@@ -29,31 +29,31 @@ export default function BlogDetailsPage({ blogMetaDetails }) {
         console.log(error.response?.data);
       }
     })();
-    (async () => {
-      try {
-        const blogDetailsRes = await axios.get(
-          `https://qqtech-server.quadque.digital/api/manage-blogs/${blogMetaDetails?.slug}`
-        );
+    // (async () => {
+    //   try {
+    //     const blogDetailsRes = await axios.get(
+    //       `https://qqtech-server.quadque.digital/api/manage-blogs/${blogMetaDetails?.slug}`
+    //     );
 
-        console.log("blogDetailsRes", blogDetailsRes);
+    //     console.log("blogDetailsRes", blogDetailsRes);
 
-        if (blogDetailsRes?.data?.status === 200) {
-          setBlogDetails(blogDetailsRes?.data?.data);
-        }
-      } catch (error) {
-        console.log(error.response?.data);
-      }
-    })();
-  }, [blogMetaDetails]);
+    //     if (blogDetailsRes?.data?.status === 200) {
+    //       setBlogDetails(blogDetailsRes?.data?.data);
+    //     }
+    //   } catch (error) {
+    //     console.log(error.response?.data);
+    //   }
+    // })();
+  }, []);
 
   return (
     <>
       <Meta
-        title={blogMetaDetails?.title}
-        url={`${process.env.NEXT_CLIENT_URL}/blogs/${blogMetaDetails?.slug}`}
-        description={blogMetaDetails?.meta_description}
-        prevImage={`https://qqtech-server.quadque.digital/public/${blogMetaDetails?.thumbnail}`}
-        keywords={blogMetaDetails?.meta_keywords}
+        title={blogDetails?.title}
+        url={`${process.env.NEXT_CLIENT_URL}/blogs/${blogDetails?.slug}`}
+        description={blogDetails?.meta_description}
+        prevImage={`https://qqtech-server.quadque.digital/public/${blogDetails?.thumbnail}`}
+        keywords={blogDetails?.meta_keywords}
       />
 
       {/* For Desktop  */}
@@ -77,55 +77,55 @@ export default function BlogDetailsPage({ blogMetaDetails }) {
 }
 
 export const getStaticProps = async (context) => {
-  const axiosInstance = axios.create({
-    timeout: 120000,
-  });
+  // const axiosInstance = axios.create({
+  //   timeout: 120000,
+  // });
   try {
-    const blogMetaDetailsRes = await axiosInstance.post(
+    const blogDetailsRes = await axios.get(
       // `${process.env.NEXT_SERVICE_URL}/api/manage-blogs/${context.params.slug}`
-      `https://qqtech-server.quadque.digital/api/get-meta-tags`,
-      {
-        slug: context?.params?.slug,
-      }
+      `https://qqtech-server.quadque.digital/api/manage-blogs/${context.params.slug}`
+      // {
+      //   slug: context?.params?.slug,
+      // }
     );
 
-    if (blogMetaDetailsRes?.data?.status === 200) {
+    if (blogDetailsRes?.data?.status === 200) {
       return {
         props: {
-          blogMetaDetails: blogMetaDetailsRes?.data?.data,
+          blogDetails: blogDetailsRes?.data?.data,
         },
       };
     }
   } catch (error) {
     console.log(error);
     return {
-      props: { blogMetaDetails: {} },
+      props: { blogDetails: {} },
     };
   }
 };
 
-// export const getStaticPaths = async () => {
-//   try {
-//     const blogRes = await axios.get(
-//       `https://qqtech-server.quadque.digital/api/manage-blogs`
-//     );
+export const getStaticPaths = async () => {
+  try {
+    const blogRes = await axios.get(
+      `https://qqtech-server.quadque.digital/api/manage-blogs`
+    );
 
-//     if (blogRes?.data?.status === 200) {
-//       const paths = blogRes?.data?.data?.map((blog) => {
-//         return {
-//           params: { slug: `${blog?.slug}` },
-//         };
-//       });
+    if (blogRes?.data?.status === 200) {
+      const paths = blogRes?.data?.data?.map((blog) => {
+        return {
+          params: { slug: `${blog?.slug}` },
+        };
+      });
 
-//       return {
-//         paths,
-//         fallback: false,
-//       };
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+      return {
+        paths,
+        fallback: false,
+      };
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // export const getServerSideProps = async (context) => {
 //   const blogDetails = await fetch(

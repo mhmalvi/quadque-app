@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import axios from "axios";
 import CountUp from "react-countup";
-import address from ".././../../../public/assets/Images/address.png";
+// import address from ".././../../../public/assets/Images/address.png";
 import bgAus from ".././../../../public/assets/Images/background_aus.jpg";
 import bgBD from ".././../../../public/assets/Images/background_bd.jpg";
 import basisLogo from ".././../../../public/assets/Images/basis_logo.png";
