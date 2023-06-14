@@ -54,7 +54,7 @@ export default function CareerPage({ career }) {
 export const getStaticProps = async () => {
   try {
     const careerResp = await axios.get(
-      `https://api.npoint.io/b056fde5204294721f0e`
+      `https://api.npoint.io/63026b0dfa0a081572f0`
     );
 
     if (careerResp?.status === 200) {
