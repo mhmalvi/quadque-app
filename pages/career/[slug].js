@@ -52,7 +52,7 @@ export default function CareerDetailsPage({ career, slug }) {
 export const getServerSideProps = async (context) => {
   console.log(context.params.slug);
   console.log(typeof context.params.slug);
-  const allCareer = await fetch(`https://api.npoint.io/63026b0dfa0a081572f0`);
+  const allCareer = await fetch(`https://api.npoint.io/c94c9b6426faba331894`);
   const careerRes = await allCareer.json();
 
   return {
@@ -63,7 +63,7 @@ export const getServerSideProps = async (context) => {
   };
   //   try {
   //     const careerDetailsResp = await axios.get(
-  //       `https://api.npoint.io/63026b0dfa0a081572f0`
+  //       `https://api.npoint.io/c94c9b6426faba331894`
   //     );
 
   //     console.log("careerDetailsResp", careerDetailsResp);

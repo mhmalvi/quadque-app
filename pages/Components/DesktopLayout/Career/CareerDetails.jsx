@@ -16,6 +16,7 @@ export default function CareerDetails({ careerDetails }) {
       }, 1000);
     }
   }, [careerDetails]);
+  console.log("crdeatils: ", careerDetails);
 
   return (
     <div className="min-h-full bg-black text-white pt-20 px-36 font_primary">
