@@ -16,6 +16,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
   const blogdetailsRef = useRef();
   const [randomBlogData, setRandomBlogData] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [htmlText, setHtmlText] = useState("");
   // const synth = window.speechSynthesis;
 
   console.log("Blog Details Page", blogDetails?.text);
@@ -31,6 +32,9 @@ const BlogDetails = ({ blogDetails, blogs }) => {
       }
     })();
   }, []);
+  useEffect(() => {
+    setHtmlText(blogDetails?.text);
+  }, [blogDetails?.text]);
 
   useEffect(() => {
     setLoader(true);
@@ -95,7 +99,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
           <div className="relative">
             <div
               className="blog_details_section"
-              dangerouslySetInnerHTML={{ __html: blogDetails?.text }}
+              dangerouslySetInnerHTML={{ __html: htmlText }}
             ></div>
           </div>
 
