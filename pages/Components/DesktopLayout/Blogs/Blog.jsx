@@ -23,6 +23,7 @@ const Blog = ({ blog, setLoader }) => {
             <div className="mt-8 h-19 overflow-hidden">
               <h2 className="text-[24px] font-normal leading-9">
                 {blog?.title}
+              
               </h2>
             </div>
             <div className="mt-2.5">
