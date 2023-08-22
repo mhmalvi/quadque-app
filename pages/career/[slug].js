@@ -55,6 +55,7 @@ export const getServerSideProps = async (context) => {
   // const allCareer = await fetch(`https://api.npoint.io/fdb0959495cf67099302`);
   const allCareer = await fetch(`https://api.npoint.io/66f985fb8cf859ad3f9f`);
   const careerRes = await allCareer.json();
+ 
 
   return {
     props: {

@@ -58,9 +58,10 @@ export const getStaticProps = async () => {
       `https://api.npoint.io/66f985fb8cf859ad3f9f`
     );
 
+
     if (careerResp?.status === 200) {
       return {
-        props: { career: careerResp?.data },
+        props: { career: careerResp?.data?.reverse() },
       };
     }
   } catch (error) {
