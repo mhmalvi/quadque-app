@@ -18,6 +18,7 @@ const BlogDetails = ({ blogDetails, blogs }) => {
   const [loader, setLoader] = useState(false);
   const [htmlText, setHtmlText] = useState("");
   // const synth = window.speechSynthesis;
+  
 
   console.log("Blog Details Page", blogDetails?.text);
 
