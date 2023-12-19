@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-black text-white">
       <Meta />
+      
       Loading...
       {/* <div className="bg-black">
         <div id="stars"></div>
