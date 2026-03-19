@@ -1,34 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Quadque App
+
+The Next.js-powered web application for **Quadque Technologies**, providing an optimized, app-like experience for clients and visitors. This project delivers the blog, service pages, and interactive content through a performant server-side rendered architecture.
+
+Part of the **Quadque digital platform ecosystem**.
+
+---
+
+## Features
+
+- Server-side rendering and static generation with Next.js 13
+- App-like responsive experience optimized for mobile and desktop
+- Blog and content management integration
+- Animated UI with React Awesome Reveal and Lottie Web
+- Interactive carousels and counters for dynamic content display
+- Sound interaction support via use-sound
+- Ant Design component library for polished UI elements
+- Tailwind CSS for rapid, utility-first styling
+- Environment-based builds for local development and production
+
+## Tech Stack
+
+| Layer        | Technology                                       |
+|--------------|---------------------------------------------------|
+| Framework    | Next.js 13 (React 18)                            |
+| Styling      | Tailwind CSS 3, PostCSS, Emotion, Ant Design 5   |
+| Animations   | React Awesome Reveal, Lottie Web, React Typical   |
+| HTTP Client  | Axios                                             |
+| Components   | Slick Carousel, React CountUp, React Socks        |
+| Audio        | use-sound                                         |
+| Linting      | ESLint (Next.js config)                           |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js >= 16
+- Yarn or npm
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
+git clone https://github.com/mhmalvi/quadque-app.git
+cd quadque-app
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Configuration
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Configure the following environment files:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+.env.development.local   — Local development settings
+.env.production           — Production settings
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Development
 
-## Learn More
+```bash
+yarn dev-local
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Production Build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn build-prod
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Static Export
 
-## Deploy on Vercel
+```bash
+yarn export-prod
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+quadque-app/
+├── pages/               # Next.js page routes
+├── public/              # Static assets
+├── styles/              # Global and module stylesheets
+├── next.config.js       # Next.js configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+└── postcss.config.js    # PostCSS plugins
+```
+
+## License
+
+Proprietary — Quadque Technologies. All rights reserved.
