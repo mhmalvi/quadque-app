@@ -1,6 +1,8 @@
 <!-- repo-card -->
 ![quadque-app](docs/assets/social-card.png)
 
+![quadque-app — architecture](docs/assets/architecture.png)
+
 # Quadque App
 
 The Next.js-powered web application for **Quadque Technologies**, providing an optimized, app-like experience for clients and visitors. This project delivers the blog, service pages, and interactive content through a performant server-side rendered architecture.
